@@ -12,12 +12,14 @@ Exploration
 Inspiration
 1. Pac-Man
 Pac-Man is a classic 2D game from the 1980s, where players navigate a maze, collecting points while avoiding enemies. Its gameplay is engaging and timeless. For our project, adapting this concept into a 3D environment with everyday settings could create a fresh and exciting experience. Given the enduring success of the original, this classic gameplay model has already proven to be a strong foundation for a great game.
-![Buckshot Roulette](https://www.theguardian.com/games/2020/may/22/pac-man-video-game-40-years-old#img-1)
+![Buckshot Roulette](https://en.wikipedia.org/wiki/Pac-Man#/media/File:Pac-man.png)
 
 
 
-3. Roombo: First Blood
+2. Roombo: First Blood
 This 3D action game on Steam features a cleaner robot that utilizes various gadgets to defend a house from invaders. After the battle, the robot diligently cleans up both the house and the mess caused by the fight. Our focus, however, is on the cleaning aspect rather than the combat. We aim to draw inspiration from the robot’s cleaning mechanics while introducing a challenge element: at higher difficulty levels, players must navigate around pets in the house, simulating the real-life obstacles a robotic vacuum might encounter.
+![Buckshot Roulette](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1004610/ss_74cc5b6877c7f57039cf178cc85791ed174809bc.1920x1080.jpg?t=1723606973)
+
 
 
 
