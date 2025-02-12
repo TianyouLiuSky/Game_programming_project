@@ -57,6 +57,12 @@ Lighting and Effects: High-contrast lighting and particle systems enhance the vi
 
 This design aims to provide a realistic and engaging simulation of a robot vacuum cleaner's operations within a dynamic home setting.
 
+### User Interface and Controls:
+
+The game employs an intuitive user interface designed for ease of navigation and control. Players can choose between keyboard controls, using the WASD keys for movement, or a game controller's analog stick for a more immersive experience. Actions such as jumping, activating defensive mechanisms, and utilizing collected items are mapped to easily accessible buttons.
+
+On-screen displays provide real-time feedback, including a dust collection meter to track progress, a battery life indicator to monitor energy levels, and a mini-map highlighting the home's layout, current objectives, and locations of obstacles and pets. These elements work together to offer a seamless and engaging user experience, ensuring players remain informed and in control as they navigate the challenges of each level.
+
 ## Development Plan
 ### Project Checkpoint 1-2:
 Implement scripts of player actions
