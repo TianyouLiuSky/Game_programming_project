@@ -12,8 +12,7 @@ Exploration
 Inspiration
 1. Pac-Man
 Pac-Man is a classic 2D game from the 1980s, where players navigate a maze, collecting points while avoiding enemies. Its gameplay is engaging and timeless. For our project, adapting this concept into a 3D environment with everyday settings could create a fresh and exciting experience. Given the enduring success of the original, this classic gameplay model has already proven to be a strong foundation for a great game.
-![Buckshot Roulette](https://en.wikipedia.org/wiki/Pac-Man#/media/File:Pac-man.png)
-
+![Pac-Man](https://upload.wikimedia.org/wikipedia/en/3/37/Pac-man.png)
 
 
 2. Roombo: First Blood
@@ -23,8 +22,10 @@ This 3D action game on Steam features a cleaner robot that utilizes various gadg
 
 
 
-4. Rock Simulator
+3. Rock Simulator
  Rock Simulator is a well-known game on Steam, offering a unique experience where players embody a rock, simply existing and witnessing different environments and weather conditions. The concept of a "simulator" that allows players to take on the role of an everyday object is particularly intriguing to us, as it provides a fresh and immersive perspective on the world.
+![Game Screenshot](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1187510/ss_12f66bb828a296ff3e5e2431b218f9b36ead8918.1920x1080.jpg?t=1695638409)
+
 
 
 
