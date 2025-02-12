@@ -10,22 +10,23 @@ First-person
 Exploration
 
 Inspiration
-1. Pac-Man
-Pac-Man is a classic 2D game from the 1980s, where players navigate a maze, collecting points while avoiding enemies. Its gameplay is engaging and timeless. For our project, adapting this concept into a 3D environment with everyday settings could create a fresh and exciting experience. Given the enduring success of the original, this classic gameplay model has already proven to be a strong foundation for a great game.
-![Pac-Man](https://media.cnn.com/api/v1/images/stellar/prod/200518114838-05-pac-man-40.jpg?q=w_1110,c_fill/f_webp)
+1. Robo Vacuum Simulator
+Robo Vacuum Simulator is one of our primary inspirations. The player player a cleaner robot to suck up garbage in a variety of settings. We want to add more elements to the game, including change of weather/lighting, a point system for the garbages gathered, and possible "enemies" such as pets that you need to avoid. Our robot would also ideally be round instead of square
+![Pac-Man](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1766150/ss_c80181d661a4620c004ba7d01288945eeae4dcba.1920x1080.jpg?t=1636406330)
+Source: https://store.steampowered.com/app/1766150/Robo_Vacuum_Simulator/
 
 
-2. Roombo: First Blood
+3. Roombo: First Blood
 This 3D action game on Steam features a cleaner robot that utilizes various gadgets to defend a house from invaders. After the battle, the robot diligently cleans up both the house and the mess caused by the fight. Our focus, however, is on the cleaning aspect rather than the combat. We aim to draw inspiration from the robot’s cleaning mechanics while introducing a challenge element: at higher difficulty levels, players must navigate around pets in the house, simulating the real-life obstacles a robotic vacuum might encounter.
 ![Buckshot Roulette](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1004610/ss_74cc5b6877c7f57039cf178cc85791ed174809bc.1920x1080.jpg?t=1723606973)
+Source: https://store.steampowered.com/app/1004610/Roombo_First_Blood/
 
 
 
-
-3. Rock Simulator
+4. Rock Simulator
  Rock Simulator is a well-known game on Steam, offering a unique experience where players embody a rock, simply existing and witnessing different environments and weather conditions. The concept of a "simulator" that allows players to take on the role of an everyday object is particularly intriguing to us, as it provides a fresh and immersive perspective on the world.
 ![Game Screenshot](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1187510/ss_12f66bb828a296ff3e5e2431b218f9b36ead8918.1920x1080.jpg?t=1695638409)
-
+Source: https://store.steampowered.com/app/1187510/Rock_Simulator/
 
 
 
