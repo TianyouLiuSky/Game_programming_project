@@ -12,7 +12,7 @@ Exploration
 Inspiration
 1. Pac-Man
 Pac-Man is a classic 2D game from the 1980s, where players navigate a maze, collecting points while avoiding enemies. Its gameplay is engaging and timeless. For our project, adapting this concept into a 3D environment with everyday settings could create a fresh and exciting experience. Given the enduring success of the original, this classic gameplay model has already proven to be a strong foundation for a great game.
-![Pac-Man](https://upload.wikimedia.org/wikipedia/en/3/37/Pac-man.png)
+![Pac-Man](https://media.cnn.com/api/v1/images/stellar/prod/200518114838-05-pac-man-40.jpg?q=w_1110,c_fill/f_webp)
 
 
 2. Roombo: First Blood
