@@ -19,7 +19,8 @@ public class RoundTrashCollectible : MonoBehaviour
     {
         if (other.CompareTag("Player"))  // Make sure the robot has the "Player" tag
         {
-            //GameManager.Instance.AddPoints(points);  // Add points
+            GameManager.Instance.AddPoints(points); 
+            GameManager.Instance.CollectTrash();  // Add points
             Destroy(gameObject);  // Destroy the collectible
         }
     }
