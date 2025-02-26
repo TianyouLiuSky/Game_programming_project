@@ -69,3 +69,13 @@ Implement scripts of player actions
 Create prefabs for game objects (furnitures, dusts)
 Create a basic map for the easy mode
 Implement basic interactions between player and environment (collision, collection)
+Work done: 
+1. created prefabs for cobot, furnitures, room and trash
+2. built scenes room (the room being played in), win scene and loose scene
+3. implemented basic interaction, including movement, collision (need futher working on), and collection.
+4. created game manager for winning and loose condition
+### Checkpoint 1-2 details:
+#### Basic Game Functions
+We created the basic scene for the game, which is a small room with furnitures and trash(represented as round balls) scattered around the room. The robot is initiaded in the middle of the room. Movement is enabled through user input (wasd) via keyboard using the unity input system, input has not yet been fitted with other controls (such as mouse or gamepads). Gamelogic, including starting and ending the game, win and lose conditions, collection of trash is handled using C# scripts (CameraController, GameManager, PlayerMovement, RoundTrashCollectible, TrashSpawn, of which TrashSpawn is not yet used in the game). These script enabled moving, collecting and ending the game.
+
+
