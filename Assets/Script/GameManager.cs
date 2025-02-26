@@ -66,16 +66,30 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         gameOverText.text = "YOU WIN!";
+        SpawnWinObject(); 
         gameOverText.gameObject.SetActive(true);
         Invoke("RestartGame", 3f); // Restart after 3 seconds
+    }
+    void SpawnWinObject()
+    {
+        GameObject ball = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        ball.transform.position = new Vector3(0, 2, 0); // Mid-air
+        ball.transform.localScale = new Vector3(2, 2, 2); // Adjust size
     }
 
     void LoseGame()
     {
         isGameOver = true;
         gameOverText.text = "YOU LOSE!";
+        SpawnLoseObject(); 
         gameOverText.gameObject.SetActive(true);
         Invoke("RestartGame", 3f);
+    }
+    void SpawnLoseObject()
+    {
+        GameObject block = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        block.transform.position = new Vector3(0, 2, 0); // Mid-air
+        block.transform.localScale = new Vector3(2, 2, 2); // Adjust size
     }
 
     void RestartGame()
