@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public float timeRemaining = 180f; // 3 minutes (180 seconds)
     private bool isGameOver = false;
     public Text timerText;  // Assign in Inspector (Timer UI)
-    public Text gameOverText;  // Assign in Inspector (Win/Lose UI)
 
     private int totalTrash = 10;  // Total trash count
     private int collectedTrash = 0;  // Count of collected trash
@@ -65,32 +64,18 @@ public class GameManager : MonoBehaviour
     void WinGame()
     {
         isGameOver = true;
-        gameOverText.text = "YOU WIN!";
-        SpawnWinObject(); 
-        gameOverText.gameObject.SetActive(true);
-        Invoke("RestartGame", 3f); // Restart after 3 seconds
+        SceneManager.LoadScene("WinMessageScene");
+        Invoke("RestartGame", 30f); // Restart after 30 seconds
     }
-    void SpawnWinObject()
-    {
-        GameObject ball = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        ball.transform.position = new Vector3(0, 2, 0); // Mid-air
-        ball.transform.localScale = new Vector3(2, 2, 2); // Adjust size
-    }
+
 
     void LoseGame()
     {
         isGameOver = true;
-        gameOverText.text = "YOU LOSE!";
-        SpawnLoseObject(); 
-        gameOverText.gameObject.SetActive(true);
-        Invoke("RestartGame", 3f);
+        SceneManager.LoadScene("LoseMessageScene");
+        Invoke("RestartGame", 30f);
     }
-    void SpawnLoseObject()
-    {
-        GameObject block = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        block.transform.position = new Vector3(0, 2, 0); // Mid-air
-        block.transform.localScale = new Vector3(2, 2, 2); // Adjust size
-    }
+
 
     void RestartGame()
     {
