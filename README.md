@@ -78,4 +78,8 @@ Work done:
 #### Basic Game Functions
 We created the basic scene for the game, which is a small room with furnitures and trash(represented as round balls) scattered around the room. The robot is initiaded in the middle of the room. Movement is enabled through user input (wasd) via keyboard using the unity input system, input has not yet been fitted with other controls (such as mouse or gamepads). Gamelogic, including starting and ending the game, win and lose conditions, collection of trash is handled using C# scripts (CameraController, GameManager, PlayerMovement, RoundTrashCollectible, TrashSpawn, of which TrashSpawn is not yet used in the game). These script enabled moving, collecting and ending the game.
 
+#### Movement and Scenes
+Movement is enabled by the keyboard, via wsad for front, back, left and right for the robot. At this point the robot only moves without turning around. On collision with trash, trash will be "collected", dissapprearing and incrementing points. If ten trash are collected in 3 minutes, win scene, which simply displayes You Win is initiated, else Loose Scene, which is just You Lost, will be displayed. Score board and timer countdown are planned to be implemented via UI, but implementation was not very successfull (unable to locate the UI in the correct position in the screen scene.
+
+
 
