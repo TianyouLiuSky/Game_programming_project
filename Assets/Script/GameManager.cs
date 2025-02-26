@@ -1,3 +1,4 @@
+// GameManager.cs Tianyou Liu, Nian Gao, Alina Pan
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; // To restart the game
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateTimer()
+    void UpdateTimer() // update the timer, but not properly displayed because timer UI not working
     {
         if (timeRemaining > 0)
         {
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         collectedTrash++;
 
-        if (collectedTrash >= totalTrash)
+        if (collectedTrash >= totalTrash) // if the player has collected all the trash, the player wins
         {
             WinGame();
         }

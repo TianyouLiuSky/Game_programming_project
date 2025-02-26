@@ -1,3 +1,4 @@
+// CameraController.cs; Tianyou Liu, Nian Gao, Alina Pan
 using UnityEngine;
 
 public class CameraController : MonoBehaviour

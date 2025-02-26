@@ -1,3 +1,5 @@
+// TrashSpawnTemplate.cs Tianyou Liu, Nian Gao, Alina Pan
+// this is not yet used in the game, we manually placed the trash in the scene
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
