@@ -32,7 +32,6 @@ Source: https://store.steampowered.com/app/1187510/Rock_Simulator/
 
 ## Gameplay:
 
-Assume control of an advanced robot vacuum cleaner within a meticulously detailed 3D home environment.
 Player Role: Assume control of an advanced robot vacuum cleaner within a meticulously detailed 3D home environment.
 
 ### Objectives:
@@ -64,6 +63,33 @@ The game employs an intuitive user interface designed for ease of navigation and
 On-screen displays provide real-time feedback, including a dust collection meter to track progress, a battery life indicator to monitor energy levels, and a mini-map highlighting the home's layout, current objectives, and locations of obstacles and pets. These elements work together to offer a seamless and engaging user experience, ensuring players remain informed and in control as they navigate the challenges of each level.
 
 ## Development Plan
+### Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9)
+Create prefabs for the robot, furniture, room, and trash
+Implement basic player movement (WASD controls)
+Enable jumping to allow interaction with elevated surfaces
+Implement collision detection for trash collection
+Develop basic game logic, including win/lose conditions
+Create game scenes (Room Scene, Win Scene, Lose Scene)
+
+Deferred Tasks:
+
+Refining collision detection: Currently, the trash collection system works, but the collision detection needs improvement for smoother gameplay. This will be refined in the next submission.
+UI Elements (Scoreboard & Timer): These were planned for this submission, but due to difficulties positioning UI elements correctly within the game scene, they will be completed in the next phase.
+Additions
+To enhance gameplay flow, we implemented a Game Manager script to handle win/lose conditions dynamically. Initially, we planned to rely on separate triggers for scene transitions, but consolidating them under a Game Manager allows for better control and scalability.
+
+## Additions
+we introduced a jump mechanic, which was not originally planned, to allow the robot to reach and clean trash placed on elevated surfaces such as sofas and tables. While initially implemented as a fun feature, it adds a new layer of challenge and interactivity to the game as suggested from our feedbacks for better gameplay experience.
+
+### Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
+Refining Environment Design: The current game environment is built using basic primitives. For the next phase, we will replace placeholders with more detailed 3D models of furniture, household objects, and interactive elements.
+Texture and Material Improvements: Applying textures to key objects (e.g., floors, walls, trash) to enhance realism and immersion.
+Enhanced Collision System: Improving the physics interactions between the robot and objects, ensuring smoother movement and more accurate trash collection.
+User Interface Development: Finalizing the implementation of the UI elements, including the score counter and timer, ensuring they are properly positioned and functional within the game scene.
+Expanding Game Logic: Introducing a more structured game loop, where different levels or game scenarios can be loaded dynamically based on the player's progress.
+
+
+## Game Development
 ### Project Checkpoint 1-2:
 Implement scripts of player actions
 Create prefabs for game objects (furnitures, dusts)
