@@ -1954,6 +1954,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3223f8e5bb3fc418b8cf03c7a3996d48, type: 2}
+    - target: {fileID: 5539576520949720593, guid: 0496c048a3b5d4911ab9c044b4d2740b,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7031652070403336285, guid: 0496c048a3b5d4911ab9c044b4d2740b,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -2404,7 +2409,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808783128}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 665c0ff69c6f54b689b4bdac2c99f120, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
