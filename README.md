@@ -87,6 +87,9 @@ Texture and Material Improvements: Applying textures to key objects (e.g., floor
 Enhanced Collision System: Improving the physics interactions between the robot and objects, ensuring smoother movement and more accurate trash collection.
 User Interface Development: Finalizing the implementation of the UI elements, including the score counter and timer, ensuring they are properly positioned and functional within the game scene.
 Expanding Game Logic: Introducing a more structured game loop, where different levels or game scenarios can be loaded dynamically based on the player's progress.
+Adding more stuff: we would want to add a obstacle, where upon the collision with the trash, the robot will slow down.
+Add a bad trash, which the robot would avoid and prevent from colliding with
+
 
 
 ## Game Development
