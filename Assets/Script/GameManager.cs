@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public float timeRemaining = 180f; // 3 minutes (180 seconds)
+    [SerializeField] private float timeRemaining = 180f; // 3 minutes (180 seconds)
     private bool isGameOver = false;
     public Text timerText;  // Assign in Inspector (Timer UI)
 
@@ -81,5 +81,9 @@ public class GameManager : MonoBehaviour
     void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Restart the current scene
+    }
+
+    public float GetTimeRemaining() {
+        return timeRemaining;
     }
 }
