@@ -6,3 +6,10 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 288108
+  packageName: Vintage Retro Room URP
+  packageVersion: 1.0
+  assetPath: Assets/Settings/URP-Performant.asset
+  uploadId: 676855
