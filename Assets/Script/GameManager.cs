@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false;
     public Text timerText;  // Assign in Inspector (Timer UI)
 
-    private int totalTrash = 10;  // Total trash count
-    private int collectedTrash = 0;  // Count of collected trash
-    private int score = 0;  // Tracks the total score
+    [SerializeField] private int totalTrash = 10;  // Total trash count
+    [SerializeField] private int collectedTrash = 0;  // Count of collected trash
+    [SerializeField] private int score = 0;  // Tracks the total score
 
     private void Awake()
     {
@@ -52,14 +52,28 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void CollectTrash()
+    public void CollectTrash(bool isGoodTrash)
     {
-        collectedTrash++;
+        if (isGoodTrash)
+        {
+            collectedTrash++;  // Increase count for good trash
+        }
+        else
+        {
+            collectedTrash--;  // Decrease count for bad trash (prevent going negative)
+            if (collectedTrash < 0) collectedTrash = 0;
+        }
 
-        if (collectedTrash >= totalTrash) // if the player has collected all the trash, the player wins
+        if (collectedTrash >= totalTrash)  // Player wins if they collect enough good trash
         {
             WinGame();
         }
+    }
+
+    public void RemovePoints(int points)
+    {
+        score -= points;
+        if (score < 0) score = 0;  // Prevent negative scores
     }
 
     void WinGame()
