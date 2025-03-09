@@ -64,12 +64,13 @@ On-screen displays provide real-time feedback, including a dust collection meter
 
 ## Development Plan
 ### Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9)
-Create prefabs for the robot, furniture, room, and trash
-Implement basic player movement (WASD controls)
-Enable jumping to allow interaction with elevated surfaces
-Implement collision detection for trash collection
-Develop basic game logic, including win/lose conditions
-Create game scenes (Room Scene, Win Scene, Lose Scene)
+1. Created prefabs for the robot, furniture, room, and trash.  
+2. Implemented basic player movement using **WASD** controls.  
+3. Enabled jumping to allow interaction with elevated surfaces.  
+4. Implemented collision detection for trash collection.  
+5. Developed basic game logic, including win and lose conditions.  
+6. Created essential game scenes: **Room Scene**, **Win Scene**, and **Lose Scene**.  
+
 
 Deferred Tasks:
 
@@ -78,8 +79,20 @@ UI Elements (Scoreboard & Timer): These were planned for this submission, but du
 Additions
 To enhance gameplay flow, we implemented a Game Manager script to handle win/lose conditions dynamically. Initially, we planned to rely on separate triggers for scene transitions, but consolidating them under a Game Manager allows for better control and scalability.
 
+### Tasks Completed:
+Created prefabs for the robot, furniture, and trash.
+Implemented player movement, trash collection, and obstacle interaction using scripts.
+Created a game manager that manages the win/lose condition of the game.
+Implemented a “bad trash” that reduces the player score.
+Implemented a UI that shows the countdown timer.
+Imported models and textures to create a better visual experience.
+Created a second game level with higher difficulty.
+Enabled third-person following camera.
+
+
 ## Additions
 we introduced a jump mechanic, which was not originally planned, to allow the robot to reach and clean trash placed on elevated surfaces such as sofas and tables. While initially implemented as a fun feature, it adds a new layer of challenge and interactivity to the game as suggested from our feedbacks for better gameplay experience.
+
 
 ### Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
 Refining Environment Design: The current game environment is built using basic primitives. For the next phase, we will replace placeholders with more detailed 3D models of furniture, household objects, and interactive elements.
@@ -90,19 +103,28 @@ Expanding Game Logic: Introducing a more structured game loop, where different l
 Adding more stuff: we would want to add a obstacle, where upon the collision with the trash, the robot will slow down.
 Add a bad trash, which the robot would avoid and prevent from colliding with
 
+### Project Part 3: Visual Effects (Ch 11, 12, 13)
+Lighting and Shadows: Instead of relying on the default lighting and shadows, we are going to apply different lighting methods to improve the aesthetics of the scenes. We are also going to add a night and day alternation. 
+Particle System and Visual Effect Graph: We will use the particle system to create more furniture (e.g. fireplace and water sink) with vivid fire/water visual effects.
+Post Processing: We will use tools such as the depth map to create better visual effects.
+More levels: We plan to add more levels with more rooms to clean and higher difficulty to win.
 
 
 ## Game Development
-### Project Checkpoint 1-2:
-Implement scripts of player actions
-Create prefabs for game objects (furnitures, dusts)
-Create a basic map for the easy mode
-Implement basic interactions between player and environment (collision, collection)
-Work done: 
-1. created prefabs for cobot, furnitures, room and trash
-2. built scenes room (the room being played in), win scene and loose scene
-3. implemented basic interaction, including movement, collision (need futher working on), and collection.
-4. created game manager for winning and loose condition
+### Project Checkpoint 1-2
+
+- Implemented scripts for player actions.  
+- Created prefabs for game objects (furniture, dust).  
+- Designed a basic map for easy mode.  
+- Implemented basic interactions between the player and the environment, including collision detection and trash collection.  
+
+#### Work Completed
+
+1. Created prefabs for the robot, furniture, room, and trash.  
+2. Built game scenes: **Room Scene** (main gameplay area), **Win Scene**, and **Lose Scene**.  
+3. Implemented basic interactions, including movement, collision detection (still needs improvement), and trash collection.  
+4. Developed a Game Manager to handle win and lose conditions.  
+
 ### Checkpoint 1-2 details:
 #### Basic Game Functions
 We created the basic scene for the game, which is a small room with furnitures and trash(represented as round balls) scattered around the room. The robot is initiaded in the middle of the room. Movement is enabled through user input (wasd) via keyboard using the unity input system, input has not yet been fitted with other controls (such as mouse or gamepads). Gamelogic, including starting and ending the game, win and lose conditions, collection of trash is handled using C# scripts (CameraController, GameManager, PlayerMovement, RoundTrashCollectible, TrashSpawn, of which TrashSpawn is not yet used in the game). These script enabled moving, collecting and ending the game.
@@ -115,6 +137,94 @@ Room Scene:
 
 #### Movement and Scenes
 Movement is enabled by the keyboard, via wsad for front, back, left and right for the robot. At this point the robot only moves without turning around. The robot can also jump by hitting Space key, which allows the robot to clean trash on the bed and sofa (we intend this to be for fun :)) On collision with trash, trash will be "collected", dissapprearing and incrementing points. If ten trash are collected in 3 minutes, win scene, which simply displayes You Win is initiated, else Lose Scene, which is just You Lost, will be displayed. Score board and timer countdown are planned to be implemented via UI, but implementation was not very successfull (unable to locate the UI in the correct position in the screen scene. 
+
+
+
+### Project Part 2: 3D Scenes and Models
+
+In this phase of development, we focused on enhancing our game’s 3D environment by incorporating new models, textures, and furniture assets to create a more realistic and engaging space for the player.
+
+#### Added Assets
+
+- **Player Object (Cleaner Robot)**
+  - **Source**: [Xiaomi Robot Mop - Automatic Vacuum Cleaner](https://sketchfab.com/3d-models/xiaomi-robot-mop-automatic-vacuum-cleaner-01c808d0ab9f44e184ef3005cf0fe82d)  
+  - We imported this model as our main player character, giving the game a more recognizable robotic vacuum cleaner look.
+
+- **Room and Furniture**
+  - **Apartment Kit**
+    - **Source**: [Apartment Kit on Unity Asset Store](https://assetstore.unity.com/packages/3d/environments/apartment-kit-124055)  
+    - Used for the dining table and various textures (e.g., floor, walls, windows), replacing placeholder geometry with more realistic meshes and materials.
+  - **Vintage Retro Room Props**
+    - **Source**: [Vintage Retro Room Props](https://assetstore.unity.com/packages/3d/props/furniture/vintage-retro-room-props-built-in-pipeline-290031)  
+    - Added retro-style furniture pieces (e.g., sofa, additional décor) to bring variety and detail to the interior design.
+  - **Custom Models** (Created by our team)
+    - **Bed, Lamp, and Tables**
+      - Modeled and textured in-house to showcase our own contributions. These custom assets are placed around the room to provide interactive surfaces and enhance the overall aesthetic.
+
+#### Visual Enhancements
+
+- **Textures and Materials**: We replaced basic Unity materials with higher-quality textures from the Apartment Kit and Vintage Retro Room Props. Marble walls and tiled flooring give the environment a more modern and polished look.
+- **Lighting**: We refined the lighting to emphasize the interior space, using point lights and directional lights to illuminate furniture and highlight key areas where the robot will be navigating.
+
+#### Current Progress
+
+Below is a screenshot illustrating the updated scene with our imported and custom-made assets:
+
+![Updated Apartment Scene](Placeholder!!!)
+
+In the image, you can see:
+- The *cleaner robot* (player) placed near the center of the room.
+- A *bed* and *lamp* modeled by our team.
+- A *dining table* and *chairs* from the Apartment Kit, complete with applied textures.
+- A *vintage sofa* and other decorative props from the Retro Room Props package.
+- Updated floor and wall materials to create a more cohesive and realistic interior environment.
+
+By integrating these assets, we aimed to make the apartment feel more “lived-in” and visually appealing, laying the groundwork for future gameplay enhancements and interactive elements.
+
+#### Next Steps
+
+- **Collision & Interaction**: Continue refining collision detection so the robot can smoothly navigate around furniture and obstacles.
+- **Additional Props**: Incorporate more decorative objects or “clutter” items to populate the environment, providing extra challenges and a sense of realism; create more rooms for players to explore such as a kitchen/bathroom; if possible, also create a trash spawner or similar object to randomly generate trash.
+- **UI Overlays**: Integrate the updated UI (scoreboard, timer) so that it visually complements the new 3D scene without obstructing gameplay.
+
+
+
+
+
+### Instructions for Testing the Project
+
+Below are the steps to play and test our Cleaner Robot Simulator, along with notes on which scenes and features to explore:
+
+- **Opening the Project**
+  - Open the Unity project in the Unity Editor.
+  - In the **Project** window, navigate to the `Scenes` folder.
+  - Load the **Room Scene** (`RoomScene.unity`) to begin testing the core gameplay.
+
+- **Gameplay Controls**
+  - **W, A, S, D**: Move the robot forward, left, backward, and right.
+  - **Space**: Jump (useful for reaching trash on elevated surfaces).
+  - The robot automatically collects trash upon collision.
+
+- **Core Scenes & Their Purposes**
+  - **Room Scene**: Main gameplay area. Move around, collect trash, and observe collision mechanics.
+  - **Win Scene**: Displays the “You Win” message once 10 trash items are collected within 3 minutes.
+  - **Lose Scene**: Displays the “You Lost” message if the player fails to collect 10 trash items within 3 minutes.
+
+- **How to Test Win/Lose Conditions**
+  - In the **Room Scene**, move around and collect trash. Each piece of trash adds to the score. Note: bad trash will reduce the total points by 1; the obstacle slows down the moving speed of the robot for 3 seconds.
+  - After collecting 10 trash items, the scene will transition to the **Win Scene**.
+  - If 3 minutes pass without collecting enough trash, the scene will transition to the **Lose Scene**.
+
+- **Additional Notes**
+  - The UI for score and timer is partially implemented; you may need to tweak the Canvas settings in the Inspector if the elements are not visible or incorrectly positioned on your screen.
+  - Some scripts (e.g., `TrashSpawn`) are not yet fully utilized but are included for future expansions.
+  - The jump mechanic is an experimental feature added to increase interactivity and fun.
+  - We intend to update the bad trash to useful objects of the owner (money, cosmetics, etc) so that if picked by the robot, the total score reduces
+
+
+
+
+
 
 
 
