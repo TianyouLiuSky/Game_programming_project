@@ -64,12 +64,13 @@ On-screen displays provide real-time feedback, including a dust collection meter
 
 ## Development Plan
 ### Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9)
-Create prefabs for the robot, furniture, room, and trash
-Implement basic player movement (WASD controls)
-Enable jumping to allow interaction with elevated surfaces
-Implement collision detection for trash collection
-Develop basic game logic, including win/lose conditions
-Create game scenes (Room Scene, Win Scene, Lose Scene)
+1. Created prefabs for the robot, furniture, room, and trash.  
+2. Implemented basic player movement using **WASD** controls.  
+3. Enabled jumping to allow interaction with elevated surfaces.  
+4. Implemented collision detection for trash collection.  
+5. Developed basic game logic, including win and lose conditions.  
+6. Created essential game scenes: **Room Scene**, **Win Scene**, and **Lose Scene**.  
+
 
 Deferred Tasks:
 
