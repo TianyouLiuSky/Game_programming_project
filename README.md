@@ -170,7 +170,11 @@ In this phase of development, we focused on enhancing our game’s 3D environmen
 
 Below is a screenshot illustrating the updated scene with our imported and custom-made assets:
 
-![Updated Apartment Scene](Placeholder!!!)
+Level 1:
+![Updated Apartment Scene](Game_demo/level1.png)
+
+Level 2:
+![Updated Apartment Scene](Game_demo/level2.png)
 
 In the image, you can see:
 - The *cleaner robot* (player) placed near the center of the room.
