@@ -111,16 +111,20 @@ More levels: We plan to add more levels with more rooms to clean and higher diff
 
 
 ## Game Development
-### Project Checkpoint 1-2:
-Implement scripts of player actions
-Create prefabs for game objects (furnitures, dusts)
-Create a basic map for the easy mode
-Implement basic interactions between player and environment (collision, collection)
-Work done: 
-1. created prefabs for cobot, furnitures, room and trash
-2. built scenes room (the room being played in), win scene and loose scene
-3. implemented basic interaction, including movement, collision (need futher working on), and collection.
-4. created game manager for winning and loose condition
+### Project Checkpoint 1-2
+
+- Implemented scripts for player actions.  
+- Created prefabs for game objects (furniture, dust).  
+- Designed a basic map for easy mode.  
+- Implemented basic interactions between the player and the environment, including collision detection and trash collection.  
+
+#### Work Completed
+
+1. Created prefabs for the robot, furniture, room, and trash.  
+2. Built game scenes: **Room Scene** (main gameplay area), **Win Scene**, and **Lose Scene**.  
+3. Implemented basic interactions, including movement, collision detection (still needs improvement), and trash collection.  
+4. Developed a Game Manager to handle win and lose conditions.  
+
 ### Checkpoint 1-2 details:
 #### Basic Game Functions
 We created the basic scene for the game, which is a small room with furnitures and trash(represented as round balls) scattered around the room. The robot is initiaded in the middle of the room. Movement is enabled through user input (wasd) via keyboard using the unity input system, input has not yet been fitted with other controls (such as mouse or gamepads). Gamelogic, including starting and ending the game, win and lose conditions, collection of trash is handled using C# scripts (CameraController, GameManager, PlayerMovement, RoundTrashCollectible, TrashSpawn, of which TrashSpawn is not yet used in the game). These script enabled moving, collecting and ending the game.
