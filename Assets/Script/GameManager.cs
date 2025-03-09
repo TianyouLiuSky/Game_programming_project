@@ -2,14 +2,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; // To restart the game
+using TMPro; 
+
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private float timeRemaining = 180f; // 3 minutes (180 seconds)
+    [SerializeField] private float timeRemaining; // time remaining variable
     private bool isGameOver = false;
-    public Text timerText;  // Assign in Inspector (Timer UI)
+    public TMP_Text timerText;  // Assign in Inspector (Timer UI)
 
     [SerializeField] private int totalTrash = 10;  // Total trash count
     [SerializeField] private int collectedTrash = 0;  // Count of collected trash
@@ -18,10 +20,43 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
         else
+        {
             Destroy(gameObject);
+            return;
+        }
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SetLevelTime(scene); // Ensure the correct time is set when switching scenes
+        isGameOver = false; // Reset game to not be over when switching scenes
+    }
+
+    private void SetLevelTime(Scene scene) 
+    {
+        string sceneName = scene.name;
+
+        if (sceneName == "Level1") // Level 1
+        {
+            timeRemaining = 180f; 
+        }
+        else if (sceneName == "Level2") // Level 2
+        {
+            timeRemaining = 120f;
+        }
+        else
+        {
+            timeRemaining = 180f; // Default value for other scenes for now
+        }
+        collectedTrash = 0;  // Reset collected trash everytime a new scene is loaded
+    }
+
 
     private void Update()
     {
@@ -80,15 +115,21 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         SceneManager.LoadScene("WinMessageScene");
-        Invoke("RestartGame", 30f); // Restart after 30 seconds
+        Invoke("LoadNextLevel", 3f); // go to next level 
     }
+
+    void LoadNextLevel()
+    {
+        SceneManager.LoadScene("Level2"); // Load Level 2 after win screen
+    }
+    // in the future this function might be edited to enable loading further scenes. 
 
 
     void LoseGame()
     {
         isGameOver = true;
         SceneManager.LoadScene("LoseMessageScene");
-        Invoke("RestartGame", 30f);
+        Invoke("RestartGame", 3f);
     }
 
 
