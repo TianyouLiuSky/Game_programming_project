@@ -1,21 +1,19 @@
-// GameManager.cs Tianyou Liu, Nian Gao, Alina Pan
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // To restart the game
-using TMPro; 
-
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private float timeRemaining; // time remaining variable
+    [SerializeField] private float timeRemaining;
     private bool isGameOver = false;
-    public TMP_Text timerText;  // Assign in Inspector (Timer UI)
+    private TMP_Text timerText;  // Will be found at runtime
 
-    [SerializeField] private int totalTrash = 10;  // Total trash count
-    [SerializeField] private int collectedTrash = 0;  // Count of collected trash
-    [SerializeField] private int score = 0;  // Tracks the total score
+    [SerializeField] private int totalTrash = 10;
+    [SerializeField] private int collectedTrash = 0;
+    [SerializeField] private int score = 0;
 
     private void Awake()
     {
@@ -34,29 +32,35 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SetLevelTime(scene); // Ensure the correct time is set when switching scenes
-        isGameOver = false; // Reset game to not be over when switching scenes
+        SetLevelTime(scene);
+        isGameOver = false;
+        
+        // Find and assign the timer text in the new scene
+        GameObject timeTextObj = GameObject.Find("Time Text");
+        if (timeTextObj != null)
+        {
+            timerText = timeTextObj.GetComponent<TMP_Text>();
+        }
     }
 
-    private void SetLevelTime(Scene scene) 
+    private void SetLevelTime(Scene scene)
     {
         string sceneName = scene.name;
 
-        if (sceneName == "Level1") // Level 1
+        if (sceneName == "Level1")
         {
-            timeRemaining = 180f; 
+            timeRemaining = 180f;
         }
-        else if (sceneName == "Level2") // Level 2
+        else if (sceneName == "Level2")
         {
             timeRemaining = 120f;
         }
         else
         {
-            timeRemaining = 180f; // Default value for other scenes for now
+            timeRemaining = 180f; // Default value for other scenes
         }
-        collectedTrash = 0;  // Reset collected trash everytime a new scene is loaded
+        collectedTrash = 0;
     }
-
 
     private void Update()
     {
@@ -66,14 +70,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateTimer() // update the timer, but not properly displayed because timer UI not working
+    void UpdateTimer()
     {
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
-            int minutes = Mathf.FloorToInt(timeRemaining / 60);
-            int seconds = Mathf.FloorToInt(timeRemaining % 60);
-            timerText.text = $"Time: {minutes:D2}:{seconds:D2}";
+            
+            // Only update UI if we have a valid reference
+            if (timerText != null)
+            {
+                int minutes = Mathf.FloorToInt(timeRemaining / 60);
+                int seconds = Mathf.FloorToInt(timeRemaining % 60);
+                timerText.text = $"Time: {minutes:D2}:{seconds:D2}";
+            }
         }
         else
         {
@@ -86,20 +95,19 @@ public class GameManager : MonoBehaviour
         score += points;
     }
 
-
     public void CollectTrash(bool isGoodTrash)
     {
         if (isGoodTrash)
         {
-            collectedTrash++;  // Increase count for good trash
+            collectedTrash++;
         }
         else
         {
-            collectedTrash--;  // Decrease count for bad trash (prevent going negative)
+            collectedTrash--;
             if (collectedTrash < 0) collectedTrash = 0;
         }
 
-        if (collectedTrash >= totalTrash)  // Player wins if they collect enough good trash
+        if (collectedTrash >= totalTrash)
         {
             WinGame();
         }
@@ -108,22 +116,20 @@ public class GameManager : MonoBehaviour
     public void RemovePoints(int points)
     {
         score -= points;
-        if (score < 0) score = 0;  // Prevent negative scores
+        if (score < 0) score = 0;
     }
 
     void WinGame()
     {
         isGameOver = true;
         SceneManager.LoadScene("WinMessageScene");
-        Invoke("LoadNextLevel", 3f); // go to next level 
+        Invoke("LoadNextLevel", 3f);
     }
 
     void LoadNextLevel()
     {
-        SceneManager.LoadScene("Level2"); // Load Level 2 after win screen
+        SceneManager.LoadScene("Level2");
     }
-    // in the future this function might be edited to enable loading further scenes. 
-
 
     void LoseGame()
     {
@@ -132,13 +138,20 @@ public class GameManager : MonoBehaviour
         Invoke("RestartGame", 3f);
     }
 
-
     void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Restart the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public float GetTimeRemaining() {
+    public float GetTimeRemaining()
+    {
         return timeRemaining;
+    }
+
+    // Clean up when the object is destroyed
+    private void OnDestroy()
+    {
+        // Unsubscribe from the scene loaded event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
