@@ -8,7 +8,7 @@ A sweeping robot simulator game where the player controls a sweeping robot to ex
 
 ## Genres
 Simulator
-First-person
+Thirs-person
 Exploration
 
 ## Inspiration
