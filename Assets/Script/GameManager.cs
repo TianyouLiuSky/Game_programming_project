@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float timeRemaining;
     private bool isGameOver = false;
-    private TMP_Text timerText;  // Will be found at runtime
+    private TMP_Text timerText;  
+    private TMP_Text scoreText; 
+
 
     [SerializeField] private int totalTrash = 10;
     [SerializeField] private int collectedTrash = 0;
@@ -40,6 +42,13 @@ public class GameManager : MonoBehaviour
         if (timeTextObj != null)
         {
             timerText = timeTextObj.GetComponent<TMP_Text>();
+        }
+
+        GameObject scoreTextObj = GameObject.Find("Score Text");
+        if (scoreTextObj != null)
+        {
+            scoreText = scoreTextObj.GetComponent<TMP_Text>();
+            UpdateScoreText();  // Update on load
         }
     }
 
@@ -93,6 +102,7 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int points)
     {
         score += points;
+        UpdateScoreText();
     }
 
     public void CollectTrash(bool isGoodTrash)
@@ -117,6 +127,7 @@ public class GameManager : MonoBehaviour
     {
         score -= points;
         if (score < 0) score = 0;
+        UpdateScoreText();
     }
 
     void WinGame()
@@ -154,4 +165,14 @@ public class GameManager : MonoBehaviour
         // Unsubscribe from the scene loaded event
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
+
+    private void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = $"Score: {score}";
+        }
+    }
+
 }
