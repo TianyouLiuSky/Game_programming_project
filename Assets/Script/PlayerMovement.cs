@@ -82,4 +82,21 @@ public class RobotMovement : MonoBehaviour
         currentMoveSpeed = moveSpeed;
         isSlowed = false;
     }
+
+    private IEnumerator CatSlowDownPlayer()
+    {
+        isSlowed = true;
+        currentMoveSpeed = slowedMoveSpeed;
+        yield return new WaitForSeconds(15f);
+        currentMoveSpeed = moveSpeed;
+        isSlowed = false;
+    }
+
+    public void SlowDownFromCat()
+    {
+        if (!isSlowed)
+        {
+            StartCoroutine(CatSlowDownPlayer());
+        }
+    }
 }
