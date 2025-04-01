@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: 3af5b507a26ef40baa0c4e6a5355c501
   - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: ef4cb74e8a8de41ca81e906cf53035cb
+  - enabled: 1
     path: Assets/Scenes/WinMessageScene.unity
     guid: a3101974c88cc424cbb4c5f36d2732be
   - enabled: 1
     path: Assets/Scenes/LoseMessageScene.unity
     guid: 427f72198c0b8437397bcb3cfc175899
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: ef4cb74e8a8de41ca81e906cf53035cb
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
