@@ -8,7 +8,7 @@ A sweeping robot simulator game where the player controls a sweeping robot to ex
 
 ## Genres
 Simulator
-First-person
+Thirs-person
 Exploration
 
 ## Inspiration
@@ -95,19 +95,35 @@ we introduced a jump mechanic, which was not originally planned, to allow the ro
 
 
 ### Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
-Refining Environment Design: The current game environment is built using basic primitives. For the next phase, we will replace placeholders with more detailed 3D models of furniture, household objects, and interactive elements.
-Texture and Material Improvements: Applying textures to key objects (e.g., floors, walls, trash) to enhance realism and immersion.
-Enhanced Collision System: Improving the physics interactions between the robot and objects, ensuring smoother movement and more accurate trash collection.
-User Interface Development: Finalizing the implementation of the UI elements, including the score counter and timer, ensuring they are properly positioned and functional within the game scene.
-Expanding Game Logic: Introducing a more structured game loop, where different levels or game scenarios can be loaded dynamically based on the player's progress.
-Adding more stuff: we would want to add a obstacle, where upon the collision with the trash, the robot will slow down.
-Add a bad trash, which the robot would avoid and prevent from colliding with
+Refining Environment Design:
+The current environment is built with basic primitives. In the next phase, we will replace these placeholders with detailed 3D models of furniture, household objects, and interactive elements. For example, instead of simple cubes for chairs and tables, we plan to import models with realistic proportions and textures to better simulate an actual home setting. (completed)
+
+Texture and Material Improvements:
+We will enhance realism and immersion by applying high-quality textures and materials to key objects such as floors, walls, and trash. (completed) 
+In the future, we can also include materials with more proper reflectivity, bump maps, and tiling patterns that match real-life counterparts.
+
+Enhanced Collision System:
+Our goal is to improve physics interactions between the robot and in-game objects. This means implementing more precise collision detection and response, ensuring that movements and trash collection are smoother and more realistic. We plan to utilize Unity’s advanced physics features to fine-tune these interactions. (completed) 
+
+Expanding Game Logic:
+A more structured game loop will be introduced. This will allow us to load different levels or scenarios dynamically based on the player's progress, enhancing the replayability and overall flow of the game. The logic will include transitions and time limits for each level. (completed) We will add more levels in the future
+
+Introducing New Gameplay Elements We Have Completed:
+
+Obstacle Mechanics:
+On collision with a trash item, the robot will experience a temporary slowdown. This adds a strategic layer to the gameplay by forcing players to plan their movements and avoid unnecessary collisions.
+
+Bad Trash Mechanic:
+We will define “bad trash” as items that negatively affect the player’s score if collected. The robot will be programmed to recognize these objects through tag detection and will avoid them during automatic trash collection. The mechanic will include visual cues (such as a distinct color or glow) to help players differentiate bad trash from regular trash.
+
+
 
 ### Project Part 3: Visual Effects (Ch 11, 12, 13)
 Lighting and Shadows: Instead of relying on the default lighting and shadows, we are going to apply different lighting methods to improve the aesthetics of the scenes. We are also going to add a night and day alternation. 
 Particle System and Visual Effect Graph: We will use the particle system to create more furniture (e.g. fireplace and water sink) with vivid fire/water visual effects.
 Post Processing: We will use tools such as the depth map to create better visual effects.
 More levels: We plan to add more levels with more rooms to clean and higher difficulty to win.
+Score Calculations: We plan to add a text UI to show the users the score they have obtained so far.
 
 
 ## Game Development
@@ -224,8 +240,6 @@ Below are the steps to play and test our Cleaner Robot Simulator, along with not
   - Some scripts (e.g., `TrashSpawn`) are not yet fully utilized but are included for future expansions.
   - The jump mechanic is an experimental feature added to increase interactivity and fun.
   - We intend to update the bad trash to useful objects of the owner (money, cosmetics, etc) so that if picked by the robot, the total score reduces
-
-
 
 
 
