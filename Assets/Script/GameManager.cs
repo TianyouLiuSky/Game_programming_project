@@ -36,18 +36,19 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // save win/loose scene
+        // Save non-win/lose scene name and reset level data
         if (scene.name != "WinMessageScene" && scene.name != "LoseMessageScene")
         {
             currentLevel = scene.name;
-            // reset trash information
+            // Reset level data
             collectedTrash = 0;
+            score = 0;  // Reset score at the start of each level
         }
         
         SetLevelTime(scene);
         isGameOver = false;
         
-        // update UI 
+        // Update UI elements
         UpdateUIElements();
     }
 
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            timeRemaining = 180f; // Default value for other scenes
+            timeRemaining = 1800f; // Default value for other scenes, very long time.
         }
         collectedTrash = 0;
     }
@@ -196,20 +197,21 @@ public class GameManager : MonoBehaviour
     // UI updating
     private void UpdateUIElements()
     {
-        // look for timer
+        // Find and setup timer text
         GameObject timeTextObj = GameObject.Find("Time Text");
         if (timeTextObj != null)
         {
             timerText = timeTextObj.GetComponent<TMP_Text>();
         }
 
-        // look for score board
-        GameObject scoreTextObj = GameObject.Find("Score Text");
+        // Find and setup score text
+        GameObject scoreTextObj = GameObject.Find("ST");
         if (scoreTextObj != null)
         {
             scoreText = scoreTextObj.GetComponent<TMP_Text>();
-            UpdateScoreText();  // make sure socre updates properly
         }
+        
+        UpdateScoreText();
     }
 
 }
