@@ -142,6 +142,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - Animate trash items disappearing when collected.
 
 ### Additions:
+- No additional information for now.
 
 
 ---
