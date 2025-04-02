@@ -118,7 +118,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - ~~Future work will include additional levels with increased difficulty and integrated score calculations via text UI.~~  
     - We added a new Level 3 to fit with the new fireplace, garden, and water elements (see Additions below).
 
-### Additions:
+- **Additions:**
 - 🆕 **Added Level 3**, which includes new environmental elements such as a garden, fireplace, and a plane-based moving water area.
 - 🐱 **Introduced a cat obstacle**: a cat that occasionally jumps on top of the robot vacuum and temporarily slows its movement, increasing challenge and interactivity.
 
@@ -141,7 +141,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - Add idle/wheel-turning animations for the robot.
   - Animate trash items disappearing when collected.
 
-### Additions:
+- **Additions:**
 - No additional information for now.
 
 
