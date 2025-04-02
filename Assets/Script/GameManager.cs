@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int collectedTrash = 0;
     [SerializeField] private int score = 0;
 
+    private string currentLevel; // add a new variable to track the current level
+
     private void Awake()
     {
         if (Instance == null)
@@ -34,22 +36,19 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // save win/loose scene
+        if (scene.name != "WinMessageScene" && scene.name != "LoseMessageScene")
+        {
+            currentLevel = scene.name;
+            // reset trash information
+            collectedTrash = 0;
+        }
+        
         SetLevelTime(scene);
         isGameOver = false;
         
-        // Find and assign the timer text in the new scene
-        GameObject timeTextObj = GameObject.Find("Time Text");
-        if (timeTextObj != null)
-        {
-            timerText = timeTextObj.GetComponent<TMP_Text>();
-        }
-
-        GameObject scoreTextObj = GameObject.Find("Score Text");
-        if (scoreTextObj != null)
-        {
-            scoreText = scoreTextObj.GetComponent<TMP_Text>();
-            UpdateScoreText();  // Update on load
-        }
+        // update UI 
+        UpdateUIElements();
     }
 
     private void SetLevelTime(Scene scene)
@@ -143,12 +142,11 @@ public class GameManager : MonoBehaviour
 
     void LoadNextLevel()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene == "Level1")
+        if (currentLevel == "Level1")
         {
             SceneManager.LoadScene("Level2");
         }
-        else if (currentScene == "Level2")
+        else if (currentLevel == "Level2")
         {
             SceneManager.LoadScene("Level3");
         }
@@ -163,7 +161,15 @@ public class GameManager : MonoBehaviour
 
     void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // store the current scene information
+        if (!string.IsNullOrEmpty(currentLevel))
+        {
+            SceneManager.LoadScene(currentLevel);
+        }
+        else
+        {
+            SceneManager.LoadScene("Level1"); // default to scene 1
+        }
     }
 
     public float GetTimeRemaining()
@@ -184,6 +190,25 @@ public class GameManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = $"Score: {score}";
+        }
+    }
+
+    // UI updating
+    private void UpdateUIElements()
+    {
+        // look for timer
+        GameObject timeTextObj = GameObject.Find("Time Text");
+        if (timeTextObj != null)
+        {
+            timerText = timeTextObj.GetComponent<TMP_Text>();
+        }
+
+        // look for score board
+        GameObject scoreTextObj = GameObject.Find("Score Text");
+        if (scoreTextObj != null)
+        {
+            scoreText = scoreTextObj.GetComponent<TMP_Text>();
+            UpdateScoreText();  // make sure socre updates properly
         }
     }
 
