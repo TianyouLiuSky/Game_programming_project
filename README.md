@@ -212,7 +212,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 
   - The particle effects involve the addition of a fireplace and smoke rising from the fire. The fireplace allow the robot to pass through. The fire doesn't have functionality yet
 
--A visual effect of raining was added similar to the text book, some parameters are changed to make the effect look better.
+- A visual effect of raining was added similar to the text book, some parameters are changed to make the effect look better.
 
 
 - **Asset Sources:**
