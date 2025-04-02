@@ -62,14 +62,14 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 
 - **Deferred Tasks:**
   - **Refining Collision Detection:**  
-    The trash collection system works, but collision detection needs further refinement for smoother gameplay.
+    ~~The trash collection system works, but collision detection needs further refinement for smoother gameplay.~~
   - **UI Elements (Scoreboard & Timer):**  
-    Positioning issues with the UI have delayed full implementation; these will be completed in the next phase.
+    ~~Positioning issues with the UI have delayed full implementation; these will be completed in the next phase.~~
 
 - **Additions:**
   - ~~Implemented a Game Manager script to handle win/lose conditions dynamically.~~
-  - Added a “bad trash” mechanic that reduces the player’s score.
-  - Introduced a jump mechanic to allow the robot to clean trash on elevated surfaces.
+  - ~~Added a “bad trash” mechanic that reduces the player’s score.~~
+  - ~~Introduced a jump mechanic to allow the robot to clean trash on elevated surfaces.~~
 
 ---
 
@@ -77,7 +77,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 
 - **Environment Design:**
   - ~~Replaced basic primitives with detailed 3D models for furniture and household objects.~~
-  - Future work includes importing models with realistic proportions and textures to better simulate a home setting.
+  - ~~Future work includes importing models with realistic proportions and textures to better simulate a home setting.~~
   
 - **Texture and Material Improvements:**
   - ~~Enhanced realism by applying high-quality textures and materials to floors, walls, and trash.~~
@@ -92,33 +92,58 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 
 - **Introducing New Gameplay Elements:**
   - **Obstacle Mechanics:**  
-    On collision with a trash item, the robot experiences a temporary slowdown, requiring strategic movement.
+    ~~On collision with a trash item, the robot experiences a temporary slowdown, requiring strategic movement.~~
   - **Bad Trash Mechanic:**  
-    The robot is programmed to detect and avoid “bad trash” which negatively affects the score.
+   ~~ The robot is programmed to detect and avoid “bad trash” which negatively affects the score.~~
 
 - **Additions:**
   - No additional tasks were made beyond the planned improvements.
 
 ---
-
 ### Project Part 3: Visual Effects (Ch 11, 12, 13)
 
 - **Lighting and Shadows:**
-  - Planned improvements include applying advanced lighting methods (e.g., night and day cycles) to enhance scene aesthetics.
-  
-- **Particle System and Visual Effects:**
-  - Planned use of particle systems to create vivid visual effects (e.g., fire and water) for elements such as fireplaces and sinks.
-  
-- **Post Processing:**
-  - Planned use of post-processing tools (e.g., depth map) for enhanced visual quality.
-  
-- **Additional Plans:**
-  - Future work will include additional levels with increased difficulty and integrated score calculations via text UI.
+  - Planned improvements include applying advanced lighting methods (e.g., night and day cycles) to enhance scene aesthetics. 
+    - We followed the textbook and created a 6-sided skybox material, then applied it to the sky setting. However, the day-night cycle is not yet implemented and will be deferred to the next milestone.
 
-- **Additions:**
-  - No additional tasks were made beyond the planned visual enhancements.
+- **Particle System and Visual Effects:**
+  - ~~Planned use of particle systems to create vivid visual effects (e.g., fire and water) for elements such as fireplaces and sinks.~~  
+    - We used Unity’s particle system to create a working fireplace visual effect.
+
+- **Post Processing:**
+  - ~~Planned use of post-processing tools (e.g., depth map) for enhanced visual quality.~~  
+    - We applied post-processing effects such as bloom to enhance the game’s lighting and mood.
+
+- **Additional Plans:**
+  - ~~Future work will include additional levels with increased difficulty and integrated score calculations via text UI.~~  
+    - We added a new Level 3 to fit with the new fireplace, garden, and water elements (see Additions below).
+
+### Additions:
+- 🆕 **Added Level 3**, which includes new environmental elements such as a garden, fireplace, and a plane-based moving water area.
+- 🐱 **Introduced a cat obstacle**: a cat that occasionally jumps on top of the robot vacuum and temporarily slows its movement, increasing challenge and interactivity.
+
 
 ---
+
+### Project Checkpoint 3-4: Sound, UI, and Animation (Ch 14, 15, 17)
+
+- **Sound:**
+  - Plan to add background music and sound effects for collision, trash pickup, and low battery.
+  - Research free sound libraries or create custom SFX.
+
+- **UI:**
+  - Refine scoreboard and timer layout.
+  - Add a battery-life indicator on-screen.
+  - Implement an animated menu screen.
+
+- **Animation:**
+  - Add idle/wheel-turning animations for the robot.
+  - Animate trash items disappearing when collected.
+
+
+
+---
+
 
 ## Development
 
@@ -172,6 +197,36 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 
 ---
 
+### Project Part 3: Visual Effects
+
+- **Implemented Elements:**
+  - A new scene, level three is added to the game. The new scene is a small garden with a fireplace. The time limit is the same as the scene, but the number of trash (bad and good) as well as barriers have increased. 
+<ADD PICTURE SCREENSHOT HERE>
+
+
+  - The new scene now has lighting, which is the sunlight coming from the direction of the sun in the sky box. <ADD PICTURE HERE>
+
+  - The particle effects involve the addition of a fireplace and smoke rising from the fire. The fireplace allow the robot to pass through. The fire doesn't have functionality yet
+
+-A visual effect of raining was added similar to the text book, some parameters are changed to make the effect look better.
+
+
+- **Asset Sources:**
+ - Free Chibi Cat: https://assetstore.unity.com/packages/3d/characters/animals/mammals/free-chibi-cat-165490
+- AllSky Free:
+https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014
+- Garden:
+https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
+
+
+
+- **Additions:**
+  - A cat prefab is added to the game. A cat wanders around the room randomly when it doesn’t see the player. If the player comes close to it, the cat will start chasing the player and attempt to sit on the player. If the cat successfully sits on the player, the player will be slowed down for 15 seconds. After 15s, the cat gets bored and gets off the player.
+
+
+---
+
+
 ## Instructions for Testing the Project
 
 - **Opening the Project:**
@@ -194,3 +249,6 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - Some scripts (e.g., `TrashSpawn`) are not fully utilized yet but are included for future expansions.
   - The jump mechanic, though initially experimental, adds extra interactivity and fun based on team feedback.
   - Future updates may convert “bad trash” into useful objects (e.g., money, cosmetics) that reduce the score if collected.
+
+
+
