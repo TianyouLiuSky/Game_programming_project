@@ -119,8 +119,8 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
     - We added a new Level 3 to fit with the new fireplace, garden, and water elements (see Additions below).
 
 - **Additions:**
-- 🆕 Added Level 3, which includes new environmental elements such as a garden, fireplace, and a plane-based moving water area.
-- 🐱 Introduced a cat obstacle: a cat that occasionally jumps on top of the robot vacuum and temporarily slows its movement, increasing challenge and interactivity.
+  - 🆕 Added Level 3, which includes new environmental elements such as a garden, fireplace, and a plane-based moving water area.
+  - 🐱 Introduced a cat obstacle: a cat that occasionally jumps on top of the robot vacuum and temporarily slows its movement, increasing challenge and interactivity.
 
 
 ---
@@ -212,7 +212,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 
   - The particle effects involve the addition of a fireplace and smoke rising from the fire. The fireplace allow the robot to pass through. The fire doesn't have functionality yet
 
-- A visual effect of raining was added similar to the text book, some parameters are changed to make the effect look better.
+  - A visual effect of raining was added similar to the text book, some parameters are changed to make the effect look better.
 
 
 - **Asset Sources:**
