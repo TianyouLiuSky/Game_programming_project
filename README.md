@@ -119,8 +119,8 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
     - We added a new Level 3 to fit with the new fireplace, garden, and water elements (see Additions below).
 
 - **Additions:**
-- 🆕 **Added Level 3**, which includes new environmental elements such as a garden, fireplace, and a plane-based moving water area.
-- 🐱 **Introduced a cat obstacle**: a cat that occasionally jumps on top of the robot vacuum and temporarily slows its movement, increasing challenge and interactivity.
+- 🆕 Added Level 3, which includes new environmental elements such as a garden, fireplace, and a plane-based moving water area.
+- 🐱 Introduced a cat obstacle: a cat that occasionally jumps on top of the robot vacuum and temporarily slows its movement, increasing challenge and interactivity.
 
 
 ---
