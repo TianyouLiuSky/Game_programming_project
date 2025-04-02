@@ -232,7 +232,7 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 - **Opening the Project:**
   - Open the Unity project in the Unity Editor.
   - In the **Project** window, navigate to the `Scenes` folder.
-  - Load **RoomScene.unity** to begin testing the core gameplay.
+  - Load level1 to begin testing the core gameplay.
   
 - **Gameplay Controls:**
   - **W, A, S, D:** Move the robot.
