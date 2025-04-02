@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
         {
             timeRemaining = 120f;
         }
+        else if (sceneName == "Level3")
+        {
+            timeRemaining = 90f;  // less time for level 3
+        }
         else
         {
             timeRemaining = 180f; // Default value for other scenes
@@ -139,7 +143,15 @@ public class GameManager : MonoBehaviour
 
     void LoadNextLevel()
     {
-        SceneManager.LoadScene("Level2");
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Level1")
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        else if (currentScene == "Level2")
+        {
+            SceneManager.LoadScene("Level3");
+        }
     }
 
     void LoseGame()
