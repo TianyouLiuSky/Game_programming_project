@@ -201,10 +201,11 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 
 - **Implemented Elements:**
   - A new scene, level three is added to the game. The new scene is a small garden with a fireplace. The time limit is the same as the scene, but the number of trash (bad and good) as well as barriers have increased. 
-<ADD PICTURE SCREENSHOT HERE>
+ ![Level 3](Game_demo/level3.png)
 
 
-  - The new scene now has lighting, which is the sunlight coming from the direction of the sun in the sky box. <ADD PICTURE HERE>
+  - The new scene now has lighting, which is the sunlight coming from the direction of the sun in the sky box.
+     ![Lighting](Game_demo/lighting.png)
 
   - The particle effects involve the addition of a fireplace and smoke rising from the fire. The fireplace allow the robot to pass through. The fire doesn't have functionality yet
 
