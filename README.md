@@ -135,6 +135,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - Refine scoreboard and timer layout.
   - Add a battery-life indicator on-screen.
   - Implement an animated menu screen.
+  - Add a general UI to allow the user to select levels they want to play, and skip levels they already played
 
 - **Animation:**
   - Add idle/wheel-turning animations for the robot.
