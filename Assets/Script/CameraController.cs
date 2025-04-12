@@ -1,26 +1,38 @@
-// CameraController.cs; Tianyou Liu, Nian Gao, Alina Pan
 using UnityEngine;
+using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private float smoothSpeed = 10f;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private float rotationSpeed = 80f;
+    [SerializeField] private Transform targetToLookAt;
+    private CinemachineVirtualCamera virtualCamera;
+    private CinemachineOrbitalTransposer orbitalTransposer;
+    private float currentAngle = 0f;
+    [SerializeField] private Vector3 cameraOffset = new Vector3(0.5f, 1, -2);
 
-    private void Start()
+    void Start()
     {
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        
-        offset = transform.position - target.position;
+        virtualCamera = GetComponent<CinemachineVirtualCamera>();
+        // add an orbital transposer to the virtual camera
+        orbitalTransposer = virtualCamera.AddCinemachineComponent<CinemachineOrbitalTransposer>();
+        // set offset
+        orbitalTransposer.m_FollowOffset = cameraOffset;
     }
 
-    private void LateUpdate()
+    void Update()
     {
-        Vector3 desiredPosition = target.position + offset;
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        transform.LookAt(target);
+        // Rotate counterclockwise with Q
+        if (Input.GetKey(KeyCode.Q))
+        {
+            currentAngle += rotationSpeed * Time.deltaTime;
+        }
+        
+        // Rotate clockwise with E
+        if (Input.GetKey(KeyCode.E))
+        {
+            currentAngle -= rotationSpeed * Time.deltaTime;
+        }
+        
+        orbitalTransposer.m_XAxis.Value = currentAngle;
     }
 }
