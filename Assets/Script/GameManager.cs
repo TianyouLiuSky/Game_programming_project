@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
             if (collectedTrash < 0) collectedTrash = 0;
         }
 
-        if (collectedTrash >= totalTrash)
+        if (!isGameOver && collectedTrash >= totalTrash)
         {
             WinGame();
         }
