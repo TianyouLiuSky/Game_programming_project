@@ -17,7 +17,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int collectedTrash = 0;
     [SerializeField] private int score = 0;
 
-    private string currentLevel; // add a new variable to track the current level
+    private string currentLevel; 
+
+    [Header("UI Panels for Win/Lose")]
+    [SerializeField] private GameObject winMessageUI; 
+    [SerializeField] private GameObject loseMessageUI; 
+
+    [Header("UI Panel for Next Level Instruction")]
+    [SerializeField] private GameObject nextLevelInstructionUI;
+
+    [Header("Door & Camera Logic")]
+    [SerializeField] private Camera mainCamera;   
+    [SerializeField] private Transform cameraBehindRobot;
+    private bool isFrozen = false;
 
     private void Awake()
     {
@@ -37,19 +49,37 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Save non-win/lose scene name and reset level data
-        if (scene.name != "WinMessageScene" && scene.name != "LoseMessageScene")
-        {
-            currentLevel = scene.name;
-            // Reset level data
-            collectedTrash = 0;
-            score = 0;  // Reset score at the start of each level
-        }
+        
+        currentLevel = scene.name;
+        // Reset level data
+        collectedTrash = 0;
+        score = 0;  // Reset score at the start of each level
+        
         
         SetLevelTime(scene);
         isGameOver = false;
         
         // Update UI elements
         UpdateUIElements();
+
+        // Ensure UI messages are hidden at start
+        if (winMessageUI) winMessageUI.SetActive(false);
+        if (loseMessageUI) loseMessageUI.SetActive(false);
+        if (nextLevelInstructionUI) nextLevelInstructionUI.SetActive(false);
+
+        UnfreezeGame(); // Make sure not frozen on new scene load
+    }
+
+    public void FreezeGame()
+    {
+        isFrozen = true; 
+        Time.timeScale = 0f;  // Pause game logic
+    }
+
+    public void UnfreezeGame()
+    {
+        isFrozen = false;
+        Time.timeScale = 1f;  // Resume game logic
     }
 
     private void SetLevelTime(Scene scene)
@@ -77,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isGameOver)
+        if (!isGameOver && !isFrozen)
         {
             UpdateTimer();
         }
@@ -137,8 +167,9 @@ public class GameManager : MonoBehaviour
     void WinGame()
     {
         isGameOver = true;
-        SceneManager.LoadScene("WinMessageScene");
-        Invoke("LoadNextLevel", 3f);
+        if (winMessageUI != null) winMessageUI.SetActive(true);
+        StartCoroutine(HideWinAfterDelay(10f));
+        FreezeGame();
     }
 
     void LoadNextLevel()
@@ -156,12 +187,16 @@ public class GameManager : MonoBehaviour
     void LoseGame()
     {
         isGameOver = true;
-        SceneManager.LoadScene("LoseMessageScene");
-        Invoke("RestartGame", 3f);
+        if (loseMessageUI != null) loseMessageUI.SetActive(true);
+        StartCoroutine(HideLoseAfterDelay(10f));
+        FreezeGame();
     }
 
     void RestartGame()
     {
+        if (loseMessageUI != null) loseMessageUI.SetActive(false);
+        UnfreezeGame();
+
         // store the current scene information
         if (!string.IsNullOrEmpty(currentLevel))
         {
@@ -213,5 +248,57 @@ public class GameManager : MonoBehaviour
         
         UpdateScoreText();
     }
+
+    // Button callback: player clicked restart
+    public void OnRestartButton()
+    {
+        RestartGame();
+    }
+
+    // Button callback: player clicked exit
+    public void OnExitButton()
+    {
+        Application.Quit();
+    }
+
+    // Door stuff
+    public void OnPlayerInteractsDoor()
+    {
+        StartCoroutine(AdvanceToNextLevelRoutine());
+    }
+
+    private System.Collections.IEnumerator AdvanceToNextLevelRoutine()
+    {
+        if (nextLevelInstructionUI != null) nextLevelInstructionUI.SetActive(false);
+
+        if (mainCamera != null && cameraBehindRobot != null)
+        {
+            mainCamera.transform.position = cameraBehindRobot.position;
+            mainCamera.transform.rotation = cameraBehindRobot.rotation;
+        }
+
+        yield return new WaitForSeconds(3f);
+
+        LoadNextLevel();
+    }    
+
+
+    // Hide win UI and show instruction
+    private System.Collections.IEnumerator HideWinAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        if (winMessageUI != null) winMessageUI.SetActive(false);
+        if (nextLevelInstructionUI != null) nextLevelInstructionUI.SetActive(true);
+        UnfreezeGame();
+    }
+
+    // Hide lose UI after time if player didn't restart
+    private System.Collections.IEnumerator HideLoseAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        if (loseMessageUI != null) loseMessageUI.SetActive(false);
+        UnfreezeGame(); 
+    }
+
 
 }
