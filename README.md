@@ -286,7 +286,7 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
   - **Updated Scoreboard & Remaining Trash Count:**  
     ![Scoreboard Timer](Game_demo/Scoreboard.png)
   - **Win Message:**  
-    ![WinMessage](Game_demo/WinMessage.png)
+    ![WinMessagePicture](Game_demo/WinMessagePicture.png)
   - **Lose Message:**  
     ![LoseMessage](Game_demo/LoseMessage.png)
   - **Directions Message:**  
