@@ -123,26 +123,57 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - 🐱 Introduced a cat obstacle: a cat that occasionally jumps on top of the robot vacuum and temporarily slows its movement, increasing challenge and interactivity.
 
 
----
-
+—
 ### Project Checkpoint 3-4: Sound, UI, and Animation (Ch 14, 15, 17)
-
 - **Sound:**
-  - Plan to add background music and sound effects for collision, trash pickup, and low battery.
-  - Research free sound libraries or create custom SFX.
+  - ~~Plan to add background music and sound effects for collision, trash pickup, and low battery.~~  
+    - ✅ Added background music to enhance immersion during gameplay.  
+    - 🔄 Sound effects for collision and trash pickup are still in progress. We will explore free sound libraries or create custom SFX before final submission.
 
 - **UI:**
-  - Refine scoreboard and timer layout.
-  - Add a battery-life indicator on-screen.
-  - Implement an animated menu screen.
-  - Add a general UI to allow the user to select levels they want to play, and skip levels they already played
+  - ~~Refine scoreboard and timer layout.~~  
+    - ✅ Improved scoreboard visibility and adjusted timer positioning for better readability. Added "trash remaining" to show the number of trash objects left in the current scene.
+  - ~~Implement an animated menu screen.~~  
+    - 🔄 In progress – the base menu is functional with exit (exit the game) and restart (restart current level) but further animation polish is deferred to the final milestone. We believe level selection does not fit our game logic well since each level has different difficulty, we want players not to jump levels, so we decided not to implement level selection UI.
 
 - **Animation:**
-  - Add idle/wheel-turning animations for the robot.
-  - Animate trash items disappearing when collected.
+  - ~~Animate trash items disappearing when collected.~~  
+    - ✅ Implemented: trash items now fade out when collected.
+  - ~~Add idle/wheel-turning animations for the robot.~~  
+    - 🔄 Wheel-turning animation is unnecessary since we can't really see the wheel very closely and clearly. 
 
 - **Additions:**
-- No additional information for now.
+  - ⚠️ Battery indicator not implemented yet – may be added in the next milestone.
+  - 🆕 Updated and swapped out prefab models to improve environmental consistency and clarity.
+  - 🚪 Refined gameplay logic: players now reach a door to transition to the next level.
+  - 🕹️ UI now includes options to exit and restart.
+  - 📷 Camera animation is implemented to go over the map on the current level as the game starts.
+  - ⤴️ Press ‘E’ to rotate the camera to avoid objects blocking users’ views.
+
+
+---
+
+---
+### Project Part 4: Finishing Touches (Ch 18, 19 + Final Polish)
+
+- **Performance Optimization:**
+  - Planned improvements include profiling the game and reducing bottlenecks to ensure smooth performance, especially in Level 3 which contains many assets and particle systems.  
+
+- **Menu and Scene Transitions:**
+  - Planned updates to main menu visuals and smoother scene transitions. 
+    - A fade-in effect is to be added between gameplay and end screens. Menu UI can include restart, level select, and return-to-main-menu buttons. Final polish on animations will be added in the last week.
+
+- **Gameplay Enhancements:**
+  - Plan to refine Level 3 gameplay balance and increase interactivity.
+    - We hope to trash placement, add more mud blockers, and slightly reduce the timer to increase difficulty. We also plan to potentially add a tooltip system to help players in Level 1.
+
+- **Additions:**
+  - 🔊 Plan to add custom sound effects for low battery, trash pickup, and cat interaction.
+  - 🧠 Future addition: Add a “How to Play” help panel accessible from the main menu.
+  - 🌟 Optional polish: Final level rating system (e.g., 1–3 stars based on score/time).
+
+
+
 
 
 ---
@@ -227,32 +258,86 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 - **Additions:**
   - A cat prefab is added to the game. A cat wanders around the room randomly when it doesn’t see the player. If the player comes close to it, the cat will start chasing the player and attempt to sit on the player. If the cat successfully sits on the player, the player will be slowed down for 15 seconds. After 15s, the cat gets bored and gets off the player.
 
-
 ---
 
+### Project Checkpoint 3-4: Sound, UI, and Animation
+
+- **Implemented Elements:**
+
+  - **Sound:**
+    - Background music was added to all levels to enhance the immersive feel of gameplay.
+    - Trash pickup sound effect was implemented to provide auditory feedback when collecting items.
+    - Sound effects for low battery and cat interactions are planned for the final milestone.
+
+  - **UI Enhancements:**
+    - The scoreboard and timer layout were refined for better visibility and consistency across levels.
+    - A new animated menu allows players to start, restart, and select levels. Buttons were added for restarting levels and replaying from the game over screen.
+    - Menu UI was significantly expanded to support restart, and exit features which only appears when the plyaer loses the game.
+
+  - **Animation:**
+    - We improved the jumping animation and implementation of the cat animation, added one more cat to level 2 and 3. We slowed down the cat to make the game slightly easier and to provide better player experience.
+    - We implemented camera animation to have the camera going around the room to provide an overview of the map and trash at the beginning of every level.
+   
+- **Screen Captures:**
+  - **UI Menu:**  
+    ![UI Menu](Game_demo/UI_Menu.png)
+  - **Updated Scoreboard & Timer:**  
+    ![Scoreboard Timer](Game_demo/Scoreboard_Timer.png)
+  - **Trash Pickup Animation:**  
+    ![Trash Animation](Game_demo/TrashFade.png)
+
+- **Asset Sources:**
+  - Background Music: [Free Music Archive](https://freemusicarchive.org/) *(final attribution to be included on publish)*
+  - Sound Effects (BGM): [Sidh Beag agus Sidh Mor by MUJI BGM](https://music.amazon.com/tracks/B094GJTSJK)
+  - Money: [Money Pack](https://assetstore.unity.com/packages/3d/props/money-pack-84433)
+  - Score & Jump & Point Deduction Sound Effect: [Score and Time](https://assetstore.unity.com/packages/audio/sound-fx/score-and-time-59255)
+
+- **Additions:**
+  - Menu UI was created to support restart, and exit features which only appears when the plyaer loses the game.
+  - Background music now plays during gameplay.
+  - Updated and replaced multiple prefabs to improve level visuals and object consistency.
+  - Added new trash and obstacle prefabs including money, cans, and mud.
+  - Refined logic to require players to reach a doorway to complete and transition levels.
+
+
+---
 
 ## Instructions for Testing the Project
 
 - **Opening the Project:**
   - Open the Unity project in the Unity Editor.
   - In the **Project** window, navigate to the `Scenes` folder.
-  - Load level1 to begin testing the core gameplay.
-  
+  - Start by opening `MainMenu.unity` to access the level selection menu.
+  - Alternatively, load `level1`, `level2`, or `level3` directly to test specific scenes.
+
 - **Gameplay Controls:**
   - **W, A, S, D:** Move the robot.
   - **Space:** Jump (to reach trash on elevated surfaces).
+  - **Mouse:** Navigate menus and click UI buttons.
   - The robot automatically collects trash upon collision.
-  
+  - The player transitions to the next level by reaching the door once the target is met.
+
 - **Core Scenes & Their Purposes:**
-  - **Room Scene:** Main gameplay area for moving and collecting trash.
-  - **Win Scene:** Displays “You Win” after collecting the required number of trash items.
-  - **Lose Scene:** Displays “You Lost” if the trash collection target isn’t met within 3 minutes.
-  
+  - **MainMenu Scene:** Access the level selection screen and start or replay levels.
+  - **Level 1–3 Scenes:** Main gameplay areas for trash collection, obstacle avoidance, and scene-based challenges.
+  - **Win Scene:** Displays “You Win” after collecting the required number of trash items and reaching the door.
+  - **Lose Scene:** Displays “You Lost” if the trash collection target isn’t met within the time limit.
+
+- **Additional Mechanics to Test:**
+  - **New Trash Types:** Includes mud, cans, and money—some may act as obstacles or "bad trash."
+  - **Cat Obstacle (Level 3):** A roaming cat may jump on the robot and temporarily slow it down.
+  - **New Level 3:** Features new environmental elements like the fireplace, garden, and water; increased difficulty.
+  - **Menu UI:** Includes animated buttons to start/restart levels, return to main menu, and select scenes.
+  - **Trash Pickup Animation & Sound:** Visual fade-out and sound effect feedback when trash is collected.
+
 - **Additional Notes:**
-  - The UI for score and timer might require adjustments in the Canvas settings.
-  - Some scripts (e.g., `TrashSpawn`) are not fully utilized yet but are included for future expansions.
-  - The jump mechanic, though initially experimental, adds extra interactivity and fun based on team feedback.
-  - Future updates may convert “bad trash” into useful objects (e.g., money, cosmetics) that reduce the score if collected.
+  - Use the Unity Profiler if testing performance or frame drops in Level 3.
+  - Cat collision and slowdown mechanics are currently set to a 15-second duration—can be tweaked in `CatBehavior.cs`.
+  - UI layout may require adjustment if tested on different screen resolutions or aspect ratios.
+
+
+
+
 
 
 
