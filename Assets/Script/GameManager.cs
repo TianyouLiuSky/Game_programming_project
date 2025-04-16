@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float timeRemaining;
     private bool isGameOver = false;
+
+    [Header("UI For in Game Information")]
     private TMP_Text timerText;  
     private TMP_Text scoreText; 
+    private TMP_Text trashRemainingText;
 
 
-    [SerializeField] private int totalTrash = 10;
+
+    [SerializeField] private int totalTrash = 10; // expected number of trash to be collected, the acutal "total nunmber" may be larger
     [SerializeField] private int collectedTrash = 0;
     [SerializeField] private int score = 0;
 
@@ -51,7 +55,6 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Save non-win/lose scene name and reset level data
-        
         currentLevel = scene.name;
         // Reset level data
         collectedTrash = 0;
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour
         
         // Update UI elements
         UpdateUIElements();
+        UpdateTrashRemainingText();
 
         // Ensure UI messages are hidden at start
         if (winMessageUI) winMessageUI.SetActive(false);
@@ -126,9 +130,7 @@ public class GameManager : MonoBehaviour
             // Only update UI if we have a valid reference
             if (timerText != null)
             {
-                int minutes = Mathf.FloorToInt(timeRemaining / 60);
-                int seconds = Mathf.FloorToInt(timeRemaining % 60);
-                timerText.text = $"Time: {minutes:D2}:{seconds:D2}";
+                timerText.text = $"Time: {timeRemaining:F2}";
             }
         }
         else
@@ -156,6 +158,7 @@ public class GameManager : MonoBehaviour
             collectedTrash--;
             if (collectedTrash < 0) collectedTrash = 0;
         }
+        UpdateTrashRemainingText();
 
         if (!isGameOver && collectedTrash >= totalTrash)
         {
@@ -195,7 +198,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         if (loseMessageUI != null) loseMessageUI.SetActive(true);
-        StartCoroutine(HideLoseAfterDelay(3f));
+        StartCoroutine(HideLoseAfterDelay(10f));
         FreezeGame();
     }
 
@@ -252,6 +255,12 @@ public class GameManager : MonoBehaviour
             scoreText = scoreTextObj.GetComponent<TMP_Text>();
         }
 
+        GameObject trashTextObj = GameObject.Find("Trash Until Win");
+        if (trashTextObj != null)
+        {
+            trashRemainingText = trashTextObj.GetComponent<TMP_Text>();
+        }
+
         GameObject winUIObj = GameObject.Find("WinMessageUI");
         if (winUIObj != null)
         {
@@ -293,6 +302,16 @@ public class GameManager : MonoBehaviour
         UpdateScoreText();
     }
 
+    private void UpdateTrashRemainingText()
+    {
+        if (trashRemainingText != null)
+        {
+            int remaining = totalTrash - collectedTrash;
+            trashRemainingText.text = $"Trash Until Win: {remaining}";
+        }
+    }
+
+
 
     // Button callback: player clicked restart
     public void OnRestartButton()
@@ -302,7 +321,22 @@ public class GameManager : MonoBehaviour
 
     // Button callback: player clicked exit
     public void OnExitButton()
-    {
+    {   
+        // hide the UI
+        if (winMessageUI != null) winMessageUI.SetActive(false);
+        if (loseMessageUI != null) loseMessageUI.SetActive(false);
+        if (nextLevelInstructionUI != null) nextLevelInstructionUI.SetActive(false);
+
+        // Reset UI text
+        if (timerText != null) timerText.text = "Time: 00:00";
+        if (scoreText != null) scoreText.text = "Score: 0";
+
+        // Optional: Reset game state
+        isGameOver = false;
+        hasWon = false;
+        score = 0;
+        collectedTrash = 0;
+
         Application.Quit();
     }
 

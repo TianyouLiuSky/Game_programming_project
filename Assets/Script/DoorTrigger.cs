@@ -6,6 +6,8 @@ public class DoorTrigger : MonoBehaviour
 {
     private bool playerInTrigger = false;
 
+    private bool hasPressedO = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -24,8 +26,9 @@ public class DoorTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (playerInTrigger && Input.GetKeyDown(KeyCode.O))
+        if (!hasPressedO && playerInTrigger && Input.GetKeyDown(KeyCode.O))
         {
+            hasPressedO = true;
             GameManager.Instance.OnPlayerInteractsDoor();
         }
     }
