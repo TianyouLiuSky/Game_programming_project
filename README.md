@@ -334,6 +334,7 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
   - Use the Unity Profiler if testing performance or frame drops in Level 3.
   - Cat collision and slowdown mechanics are currently set to a 15-second duration—can be tweaked in `CatBehavior.cs`.
   - UI layout may require adjustment if tested on different screen resolutions or aspect ratios.
+  - The player is exptected to collect 10 trash, 100 points total. good trash (the colored cans) will award the player with 10 points each and 1 trash collcted, the bad trash (US dollars) should be avoided and if collected will give the player -10 points and -1 trash collected. The player wins by collecting 10 trash and getting 100 points (including deductions, so player might need to actually collect beyond 10 trash if they collected any bad trash). Once 100 points are met, the player will have 5 seconds to collect more trash, if they got beyond 100/130 points, they will get a special ranking. If the player's point go below 100 or time ran out during this period, the player still wins. Failing to collect 10 trash in the time limit will loose the game, and the player can select restart or quit. 
 
 
 
