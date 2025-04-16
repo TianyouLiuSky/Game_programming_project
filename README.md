@@ -38,7 +38,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - **Medium Mode:**  
     - In addition to dust collection, avoid interference from household pets like cats and dogs.
   - **Hard Mode:**  
-    - Defend the home from intruders using built-in defensive mechanisms.
+    - ~~Defend the home from intruders using built-in defensive mechanisms.~~
 - **Mechanics:**
   - **Item Interaction:** Collect and use items (e.g., speed boosts, temporary shields).
   - **Time Management:** Complete tasks within set time limits to advance.
@@ -46,7 +46,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 - **Graphics & Controls:**
   - First-person perspective with low-poly, stylized graphics.
   - Intuitive controls using keyboard (WASD for movement, Space for jump) or game controller.
-  - On-screen displays include a dust collection meter, battery life indicator, and a mini-map.
+  - On-screen displays include a dust collection meter, battery life indicator, ~~and a mini-map.~~
 
 ## Development Plan  
 
@@ -133,8 +133,9 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 - **UI:**
   - ~~Refine scoreboard and timer layout.~~  
     - ✅ Improved scoreboard visibility and adjusted timer positioning for better readability. Added "trash remaining" to show the number of trash objects left in the current scene.
+    - ✅ A new winning message is now displayed, including a rank indicator based on remaining time and score.
   - ~~Implement an animated menu screen.~~  
-    - 🔄 In progress – the base menu is functional with exit (exit the game) and restart (restart current level) but further animation polish is deferred to the final milestone. We believe level selection does not fit our game logic well since each level has different difficulty, we want players not to jump levels, so we decided not to implement level selection UI.
+    - 🔄 In progress – the base menu is functional with exit (exit the game) and restart (restart current level) but further animation polish is deferred to the final milestone. We believe level selection does not fit our game logic well since each level has different difficulty, we want players not to jump levels, so we decided not to implement level selection UI. In the future we might implement a mechanism for the user to skip a level if they have already played that level, but since there is only three levels for our game that might be redundent.
 
 - **Animation:**
   - ~~Animate trash items disappearing when collected.~~  
@@ -149,6 +150,9 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - 🕹️ UI now includes options to exit and restart.
   - 📷 Camera animation is implemented to go over the map on the current level as the game starts.
   - ⤴️ Press ‘E’ to rotate the camera to avoid objects blocking users’ views.
+  - 🎬 Changed the scene transition to use the door on pressing 'O', used winning message(text in UI) instead of scenes.
+  - ‼️ Now to go to the next scene, follow the instruction displayed after winning, go to the door and press 'O'
+  - ‼️ Special note: for the ranking, there is a 5 second time window to collect beyond 10 trash (go above 100 points), this is not a bug. By doing so the player can trigger additional points and have special rankings for tasks completed in the 5 second period. Even if time ran out in this five seconds, the player still wins the game but there are not special ranks.
 
 
 ---
