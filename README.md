@@ -285,7 +285,7 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
     ![Trash Animation](Game_demo/TrashFade.png)
 
 - **Asset Sources:**
-  - Background Music: [Free Music Archive](https://freemusicarchive.org/) *(final attribution to be included on publish)*
+  - Trash Prefab: [Mess Maker FREE](https://assetstore.unity.com/packages/tools/modeling/mess-maker-free-213803)
   - Sound Effects (BGM): [Sidh Beag agus Sidh Mor by MUJI BGM](https://music.amazon.com/tracks/B094GJTSJK)
   - Money: [Money Pack](https://assetstore.unity.com/packages/3d/props/money-pack-84433)
   - Score & Jump & Point Deduction Sound Effect: [Score and Time](https://assetstore.unity.com/packages/audio/sound-fx/score-and-time-59255)
