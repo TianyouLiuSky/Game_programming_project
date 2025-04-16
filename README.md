@@ -128,7 +128,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 - **Sound:**
   - ~~Plan to add background music and sound effects for collision, trash pickup, and low battery.~~  
     - ✅ Added background music to enhance immersion during gameplay.  
-    - 🔄 Sound effects for collision and trash pickup are still in progress. We will explore free sound libraries or create custom SFX before final submission.
+    - ✅ Sound effects for collision trash pickup is finished
 
 - **UI:**
   - ~~Refine scoreboard and timer layout.~~  
@@ -150,8 +150,6 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - 📷 Camera animation is implemented to go over the map on the current level as the game starts.
   - ⤴️ Press ‘E’ to rotate the camera to avoid objects blocking users’ views.
 
-
----
 
 ---
 ### Project Part 4: Finishing Touches (Ch 18, 19 + Final Polish)
