@@ -126,9 +126,7 @@ public class GameManager : MonoBehaviour
             // Only update UI if we have a valid reference
             if (timerText != null)
             {
-                int minutes = Mathf.FloorToInt(timeRemaining / 60);
-                int seconds = Mathf.FloorToInt(timeRemaining % 60);
-                timerText.text = $"Time: {minutes:D2}:{seconds:D2}";
+                timerText.text = $"Time: {timeRemaining:F2}";
             }
         }
         else
@@ -195,7 +193,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         if (loseMessageUI != null) loseMessageUI.SetActive(true);
-        StartCoroutine(HideLoseAfterDelay(3f));
+        StartCoroutine(HideLoseAfterDelay(10f));
         FreezeGame();
     }
 
@@ -302,7 +300,22 @@ public class GameManager : MonoBehaviour
 
     // Button callback: player clicked exit
     public void OnExitButton()
-    {
+    {   
+        // hide the UI
+        if (winMessageUI != null) winMessageUI.SetActive(false);
+        if (loseMessageUI != null) loseMessageUI.SetActive(false);
+        if (nextLevelInstructionUI != null) nextLevelInstructionUI.SetActive(false);
+
+        // Reset UI text
+        if (timerText != null) timerText.text = "Time: 00:00";
+        if (scoreText != null) scoreText.text = "Score: 0";
+
+        // Optional: Reset game state
+        isGameOver = false;
+        hasWon = false;
+        score = 0;
+        collectedTrash = 0;
+
         Application.Quit();
     }
 
