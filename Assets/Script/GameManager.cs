@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     private string currentLevel; 
 
     [Header("UI Panels for Win/Lose")]
-    [SerializeField] private GameObject winMessageUI; 
+    [SerializeField] private GameObject winMessageUI;
+    private TMP_Text winMessageText;
     [SerializeField] private GameObject loseMessageUI; 
 
     [Header("UI Panel for Next Level Instruction")]
@@ -177,10 +178,52 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         hasWon = true;
-        
-        if (winMessageUI != null) winMessageUI.SetActive(true);
+
+        string rank = EvaluatePerformance(); // just "S Rank", "A Rank", etc.
+
+        if (winMessageText != null)
+        {
+            winMessageText.text = $"You Win! {rank}";
+        }
+
+        if (winMessageUI != null)
+        {
+            winMessageUI.SetActive(true);
+        }
+
         StartCoroutine(HideWinAfterDelay(3f));
     }
+
+
+    private string EvaluatePerformance()
+    {
+        string rank;
+
+        if (timeRemaining >= 70)
+        {
+            rank = "S Rank";
+        }
+        else if (timeRemaining >= 60)
+        {
+            rank = "A Rank";
+        }
+        else if (timeRemaining >= 30)
+        {
+            rank = "B Rank";
+        }
+        else if (timeRemaining >= 10)
+        {
+            rank = "C Rank";
+        }
+        else
+        {
+            rank = "D Rank";
+        }
+
+        return rank;
+    }
+
+
 
     void LoadNextLevel()
     {
@@ -265,7 +308,14 @@ public class GameManager : MonoBehaviour
         if (winUIObj != null)
         {
             winMessageUI = winUIObj;
-            winMessageUI.SetActive(false); // Hide again just to be sure
+            winMessageUI.SetActive(false);
+
+            // Try to find TMP_Text component on it or inside it
+            winMessageText = winUIObj.GetComponent<TMP_Text>();
+            if (winMessageText == null)
+            {
+                winMessageText = winUIObj.GetComponentInChildren<TMP_Text>();
+            }
         }
 
         GameObject loseUIObj = GameObject.Find("LoseMessageUI");
