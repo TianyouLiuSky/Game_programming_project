@@ -1,6 +1,10 @@
+// Nian Gao, Tianyou Liu, Alina Pan
 using UnityEngine;
 using System.Collections.Generic;
 
+/**
+This script handles the occlusion of objects between the player and the camera
+*/
 public class PlayerOcclusionHandler : MonoBehaviour
 {
     public Transform player;
@@ -75,7 +79,7 @@ public class PlayerOcclusionHandler : MonoBehaviour
     
     void OnDestroy()
     {
-        // Clean up by restoring original materials
+        // Restore original materials
         foreach (Renderer renderer in currentlyTransparent)
         {
             if (renderer != null && originalMaterials.ContainsKey(renderer))

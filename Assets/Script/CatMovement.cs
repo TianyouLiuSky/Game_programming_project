@@ -1,16 +1,20 @@
+// Nian Gao, Tianyou Liu, Alina Pan
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CatMovement : MonoBehaviour
 {
+    [Header("Walk and Chase")]
     public float walkSpeed = 0.5f;
     public float chaseSpeed = 2f;
     public float rotationSpeed = 5f;
     public float randomWalkRadius = 3f;
     public float detectionRadius = 2f;
+    [Header("Sit")]
     public float sittingDistance = 0.1f;
     public float sittingDuration = 15f;
+    [Header("Jump")]
     public float jumpHeight = 0.2f;
     public float jumpDuration = 0.5f;
 
@@ -30,16 +34,12 @@ public class CatMovement : MonoBehaviour
     // Movement
     private Vector3 targetPosition;
     private Transform playerTransform;
-    private bool isSittingOnPlayer = false;
     private float stateTimer = 0f;
     private float idleTimer = 0f;
     private float idleDuration = 5f;
     private bool isJumping = false;
-    private float animRefreshTimer = 0f;
     private Rigidbody rb;
     private RobotMovement playerMovement;
-    private float obstructionTimer = 0f;
-    private float obstructionDuration = 1f;
     private float chaseCooldownTimer = 0f;
     private float chaseCooldownDuration = 5f;
     private bool isOnChaseCooldown = false;
@@ -56,6 +56,7 @@ public class CatMovement : MonoBehaviour
     }
 
     void Update() {
+        // If the cat just got off the player, it does not chase the player during the cooldown
         if (isOnChaseCooldown) {
             chaseCooldownTimer += Time.deltaTime;
             if (chaseCooldownTimer >= chaseCooldownDuration) {
@@ -90,6 +91,7 @@ public class CatMovement : MonoBehaviour
 
     void UpdateIdleState() {
         idleTimer += Time.deltaTime;
+        // The cat walks to random destination in randomwalk state
         if (idleTimer >= idleDuration)
         {
             SetRandomDestination();
@@ -108,7 +110,7 @@ public class CatMovement : MonoBehaviour
     
         if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
         {
-            // Go back to idle
+            // Go back to idle animation when the cat reaches the random destination
             currentState = CatState.Idle;
             ChangeAnimationState(ANIM_IDLE);
             SetRandomIdleDuration();
@@ -120,6 +122,7 @@ void OnCollisionEnter(Collision collision) {
         return;
     }
     
+    // Go to another destination if the cat's path is being blocked
     if (currentState == CatState.RandomWalk) {
         SetRandomDestination();
     }
@@ -148,7 +151,6 @@ void UpdateChasePlayerState(){
         // Start jumping onto player
         currentState = CatState.SitOnPlayer;
         stateTimer = 0f;
-        isSittingOnPlayer = false;
         isJumping = true;
         rb.isKinematic = true;
         StartCoroutine(JumpOntoPlayer());
@@ -166,7 +168,7 @@ IEnumerator JumpOntoPlayer() {
     Vector3 targetPosition = playerTransform.position + Vector3.up * 0.1f;
     float elapsedTime = 0f;
     
-    // calculate the arc
+    // calculate the arc of the jump
     while (elapsedTime < jumpDuration)
     {
         float progress = elapsedTime / jumpDuration;
@@ -178,25 +180,18 @@ IEnumerator JumpOntoPlayer() {
         yield return null;
     }
 
-    // currentAnimState = ANIM_SIT;
-    // transform.position = targetPosition;
-    // isSittingOnPlayer = true;
-    // isJumping = false;
-    
-    // Check if player is still close enough after jump completes
+    // Check if player is still close enough (if the cat successfully sits on player) after jump completes
     float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
     if (distanceToPlayer <= sittingDistance)
     {
         currentAnimState = ANIM_SIT;
         transform.position = targetPosition;
-        isSittingOnPlayer = true;
         isJumping = false;
     }
     else {
         rb.isKinematic = false;
-        isSittingOnPlayer = false;
         
-        // Decide next state based on player distance
+        // The cat fails to sit on the player. Decide next state based on player distance.
         if (distanceToPlayer <= detectionRadius)
         {
             currentState = CatState.ChasePlayer;
@@ -233,7 +228,6 @@ IEnumerator JumpOntoPlayer() {
             if (stateTimer >= sittingDuration)
             {
                 rb.isKinematic = false;
-                isSittingOnPlayer = false;
                 SetWalkAwayDestination();
                 currentState = CatState.WalkAway;
                 ChangeAnimationState(ANIM_WALK);
@@ -310,7 +304,6 @@ IEnumerator JumpOntoPlayer() {
 
     IEnumerator PlayMiauAnimation() {
         string previousAnim = currentAnimState;
-        // Play miau animation
         ChangeAnimationState(ANIM_MIAU);
         yield return new WaitForSeconds(1f);
         ChangeAnimationState(previousAnim);

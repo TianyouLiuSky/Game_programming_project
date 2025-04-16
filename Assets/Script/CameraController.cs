@@ -1,3 +1,4 @@
+// Nian Gao, Tianyou Liu, Alina Pan
 using UnityEngine;
 using Cinemachine;
 
