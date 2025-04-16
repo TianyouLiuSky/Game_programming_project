@@ -228,9 +228,13 @@ public class GameManager : MonoBehaviour
     {
         string rank;
 
-        if (score >= 100 && timeSpent <= 30)
+        if (score >= 130 && timeSpent <= 30)
         {
             rank = "SSS Rank";
+        }
+        else if (score >= 100 && timeSpent <= 30)
+        {
+            rank = "SS Rank";
         }
         else if (timeSpent <= 30)
         {
@@ -247,6 +251,9 @@ public class GameManager : MonoBehaviour
         else if (timeSpent <= 60)
         {
             rank = "C Rank";
+        }
+        else if (score >= 100) {
+            rank = "D+ Rank";
         }
         else
         {
