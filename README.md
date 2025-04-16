@@ -285,6 +285,12 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
     ![UI Menu](Game_demo/UI_Menu.png)
   - **Updated Scoreboard & Remaining Trash Count:**  
     ![Scoreboard Timer](Game_demo/Scoreboard.png)
+  - **Win Message:**  
+  ![UI Menu](Game_demo/WinMessage.png)
+  - **Lose Message:**  
+  ![UI Menu](Game_demo/LoseMessage.png)
+  - **Directions Message:**  
+  ![UI Menu](Game_demo/Message.png)
 
 - **Asset Sources:**
   - Trash Prefab: [Mess Maker FREE](https://assetstore.unity.com/packages/tools/modeling/mess-maker-free-213803)
