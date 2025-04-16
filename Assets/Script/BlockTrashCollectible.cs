@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BadTrash : MonoBehaviour
 {
-    public int penaltyPoints = 10;  // Points deducted when collected
+    [Header("Trash score")]
+    [SerializeField] private int penaltyPoints = 10;  // Points deducted when collected
     [SerializeField] private AudioClip collectSound; // Sound effect
 
 

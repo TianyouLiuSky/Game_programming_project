@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    private bool playerInTrigger = false;
+    [SerializeField] private bool playerInTrigger = false;
 
-    private bool hasPressedO = false;
+    [SerializeField] private bool hasPressedO = false;
 
     private void OnTriggerEnter(Collider other)
     {

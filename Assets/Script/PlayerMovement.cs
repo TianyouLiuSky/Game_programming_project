@@ -4,10 +4,13 @@ using System.Collections;
 
 public class RobotMovement : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float slowedMoveSpeed = 2f;
-    [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float slowdownDuration = 3f;
+
+    [Header("Jump")]
+    [SerializeField] private float jumpForce = 5f;
     [SerializeField] private AudioClip jumpSound;
 
     private Rigidbody rb;

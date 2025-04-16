@@ -1,5 +1,6 @@
 // TrashSpawnTemplate.cs Tianyou Liu, Nian Gao, Alina Pan
 // this is not yet used in the game, we manually placed the trash in the scene
+// This script is not used and not expected to work, this is here just to prevent things from crash if this is not found incase any other scripobject referenced to this
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

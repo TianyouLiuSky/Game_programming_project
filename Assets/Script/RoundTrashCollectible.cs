@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RoundTrashCollectible : MonoBehaviour
 {
-    public int points = 10;  // Points per collectible
+    [Header("Trash scores")]
+    [SerializeField] private int points = 10;  // Points per collectible
     [SerializeField] private AudioClip collectSound; // Sound effect
 
     private void OnTriggerEnter(Collider other)
