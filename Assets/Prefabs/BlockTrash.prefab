@@ -121,3 +121,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penaltyPoints: 10
+  collectSound: {fileID: 8300000, guid: 0bd4bc9aa4fc44d81830684b32de4276, type: 3}

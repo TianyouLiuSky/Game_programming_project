@@ -8,11 +8,13 @@ public class RobotMovement : MonoBehaviour
     [SerializeField] private float slowedMoveSpeed = 2f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float slowdownDuration = 3f;
+    [SerializeField] private AudioClip jumpSound;
 
     private Rigidbody rb;
     private bool isGrounded;
     private float currentMoveSpeed;
     private bool isSlowed = false;
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -22,6 +24,9 @@ public class RobotMovement : MonoBehaviour
         {
             rb = gameObject.AddComponent<Rigidbody>();
         }
+
+        // Get AudioSource component
+        audioSource = GetComponent<AudioSource>();
         
         // Configure Rigidbody for a robot vacuum
         rb.constraints = RigidbodyConstraints.FreezeRotation; // Prevent tipping over
@@ -48,6 +53,7 @@ public class RobotMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            audioSource.PlayOneShot(jumpSound);
         }
     }
 

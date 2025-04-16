@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoundTrashCollectible : MonoBehaviour
 {
     public int points = 10;  // Points per collectible
+    [SerializeField] private AudioClip collectSound; // Sound effect
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,6 +13,11 @@ public class RoundTrashCollectible : MonoBehaviour
         {
             GameManager.Instance.AddPoints(points); 
             GameManager.Instance.CollectTrash(true);  // Add points
+            if (collectSound != null)
+            {
+                // Play the sound effect
+                AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            }
             Destroy(gameObject);  // Destroy the collectible
         }
     }
