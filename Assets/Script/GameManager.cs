@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float timeRemaining;
     private bool isGameOver = false;
+
+    [Header("UI For in Game Information")]
     private TMP_Text timerText;  
     private TMP_Text scoreText; 
+    private TMP_Text trashRemainingText;
 
 
-    [SerializeField] private int totalTrash = 10;
+
+    [SerializeField] private int totalTrash = 10; // expected number of trash to be collected, the acutal "total nunmber" may be larger
     [SerializeField] private int collectedTrash = 0;
     [SerializeField] private int score = 0;
 
@@ -51,7 +55,6 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Save non-win/lose scene name and reset level data
-        
         currentLevel = scene.name;
         // Reset level data
         collectedTrash = 0;
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour
         
         // Update UI elements
         UpdateUIElements();
+        UpdateTrashRemainingText();
 
         // Ensure UI messages are hidden at start
         if (winMessageUI) winMessageUI.SetActive(false);
@@ -154,6 +158,7 @@ public class GameManager : MonoBehaviour
             collectedTrash--;
             if (collectedTrash < 0) collectedTrash = 0;
         }
+        UpdateTrashRemainingText();
 
         if (!isGameOver && collectedTrash >= totalTrash)
         {
@@ -250,6 +255,12 @@ public class GameManager : MonoBehaviour
             scoreText = scoreTextObj.GetComponent<TMP_Text>();
         }
 
+        GameObject trashTextObj = GameObject.Find("Trash Until Win");
+        if (trashTextObj != null)
+        {
+            trashRemainingText = trashTextObj.GetComponent<TMP_Text>();
+        }
+
         GameObject winUIObj = GameObject.Find("WinMessageUI");
         if (winUIObj != null)
         {
@@ -290,6 +301,16 @@ public class GameManager : MonoBehaviour
 
         UpdateScoreText();
     }
+
+    private void UpdateTrashRemainingText()
+    {
+        if (trashRemainingText != null)
+        {
+            int remaining = totalTrash - collectedTrash;
+            trashRemainingText.text = $"Trash Until Win: {remaining}";
+        }
+    }
+
 
 
     // Button callback: player clicked restart
