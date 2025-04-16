@@ -640,8 +640,55 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2170178008488602006, guid: e9a47cdb5968d66499f6b4ee53467cd4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 241996142}
+    - targetCorrespondingSourceObject: {fileID: 2170178008488602006, guid: e9a47cdb5968d66499f6b4ee53467cd4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 241996143}
   m_SourcePrefab: {fileID: 100100000, guid: e9a47cdb5968d66499f6b4ee53467cd4, type: 3}
+--- !u!1 &241996141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2170178008488602006, guid: e9a47cdb5968d66499f6b4ee53467cd4,
+    type: 3}
+  m_PrefabInstance: {fileID: 241996140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &241996142
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241996141}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3, z: 2}
+  m_Center: {x: -1.2443129, y: 1.5426046, z: 0.00000011967596}
+--- !u!114 &241996143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241996141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a92a4ab34954a6bb27236f404bbb7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &248589016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,6 +782,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16999996
       objectReference: {fileID: 0}
@@ -787,6 +849,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069263650632248932, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d8e9b6b17daab4ca085c21f1e54051be, type: 2}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4590,6 +4672,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.17
       objectReference: {fileID: 0}
@@ -4643,6 +4740,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6069263650632248932, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d8e9b6b17daab4ca085c21f1e54051be, type: 2}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4656,6 +4773,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 386711214078535976, guid: c8e5796f483f64f21b0b87fb126e213a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4710,6 +4842,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069263650632248932, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d8e9b6b17daab4ca085c21f1e54051be, type: 2}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207681979394425223, guid: c8e5796f483f64f21b0b87fb126e213a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

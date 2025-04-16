@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;   
     [SerializeField] private Transform cameraBehindRobot;
     private bool isFrozen = false;
+    private bool hasWon = false;
+
 
     private void Awake()
     {
@@ -53,11 +55,13 @@ public class GameManager : MonoBehaviour
         currentLevel = scene.name;
         // Reset level data
         collectedTrash = 0;
+        totalTrash = 10;
         score = 0;  // Reset score at the start of each level
         
         
         SetLevelTime(scene);
         isGameOver = false;
+        hasWon = false;
         
         // Update UI elements
         UpdateUIElements();
@@ -107,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isGameOver && !isFrozen)
+        if (!isGameOver && !isFrozen && !hasWon)
         {
             UpdateTimer();
         }
@@ -141,6 +145,8 @@ public class GameManager : MonoBehaviour
 
     public void CollectTrash(bool isGoodTrash)
     {
+        if (isGameOver || hasWon) return; // do nothing if game is over. 
+
         if (isGoodTrash)
         {
             collectedTrash++;
@@ -167,9 +173,10 @@ public class GameManager : MonoBehaviour
     void WinGame()
     {
         isGameOver = true;
+        hasWon = true;
+        
         if (winMessageUI != null) winMessageUI.SetActive(true);
-        StartCoroutine(HideWinAfterDelay(10f));
-        FreezeGame();
+        StartCoroutine(HideWinAfterDelay(3f));
     }
 
     void LoadNextLevel()
@@ -188,7 +195,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         if (loseMessageUI != null) loseMessageUI.SetActive(true);
-        StartCoroutine(HideLoseAfterDelay(10f));
+        StartCoroutine(HideLoseAfterDelay(3f));
         FreezeGame();
     }
 
@@ -232,22 +239,60 @@ public class GameManager : MonoBehaviour
     // UI updating
     private void UpdateUIElements()
     {
-        // Find and setup timer text
+        // Re-find all UI elements in the new scene
         GameObject timeTextObj = GameObject.Find("Time Text");
         if (timeTextObj != null)
         {
             timerText = timeTextObj.GetComponent<TMP_Text>();
         }
 
-        // Find and setup score text
         GameObject scoreTextObj = GameObject.Find("ST");
         if (scoreTextObj != null)
         {
             scoreText = scoreTextObj.GetComponent<TMP_Text>();
         }
-        
+
+        GameObject winUIObj = GameObject.Find("WinMessageUI");
+        if (winUIObj != null)
+        {
+            winMessageUI = winUIObj;
+            winMessageUI.SetActive(false); // Hide again just to be sure
+        }
+
+        GameObject loseUIObj = GameObject.Find("LoseMessageUI");
+        if (loseUIObj != null)
+        {
+            loseMessageUI = loseUIObj;
+            loseMessageUI.SetActive(false); // Hide again
+        }
+
+        GameObject nextLevelUIObj = GameObject.Find("NextLevelInstructionUI");
+        if (nextLevelUIObj != null)
+        {
+            nextLevelInstructionUI = nextLevelUIObj;
+            nextLevelInstructionUI.SetActive(false); // Hide again
+        }
+
+
+        if (mainCamera == null)
+        {
+            Camera cam = Camera.main;
+            if (cam != null)
+            {
+                mainCamera = cam;
+            }
+        }
+
+        GameObject cameraTargetObj = GameObject.Find("CameraTarget");
+
+        if (cameraTargetObj != null)
+        {
+            cameraBehindRobot = cameraTargetObj.transform;
+        }
+
         UpdateScoreText();
     }
+
 
     // Button callback: player clicked restart
     public void OnRestartButton()
@@ -277,7 +322,7 @@ public class GameManager : MonoBehaviour
             mainCamera.transform.rotation = cameraBehindRobot.rotation;
         }
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         LoadNextLevel();
     }    
