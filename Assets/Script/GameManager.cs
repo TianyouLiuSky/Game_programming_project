@@ -6,27 +6,33 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
-    [SerializeField] private float timeRemaining;
-    private bool isGameOver = false;
-
     
+
     private TMP_Text timerText;  
     private TMP_Text scoreText; 
     private TMP_Text trashRemainingText;
 
+    [Header("Game State Variables")]
+    [SerializeField] private bool isGameOver = false;
+    [SerializeField] private bool isFrozen = false;
+    [SerializeField] private bool hasWon = false;
+    [SerializeField] private bool isInWinDelay = false;
 
-    [Header("UI For in Game Information")]
+
+
+    [Header("Gameplay Progress & Score Tracking")]
+    [SerializeField] private float timeRemaining;
+    [SerializeField] private float timeSpent;
     [SerializeField] private int totalTrash = 10; // expected number of trash to be collected, the acutal "total nunmber" may be larger
     [SerializeField] private int collectedTrash = 0;
     [SerializeField] private int score = 0;
-
-    private string currentLevel; 
+    [SerializeField] private string currentLevel; 
 
     [Header("UI Panels for Win/Lose")]
     [SerializeField] private GameObject winMessageUI;
     private TMP_Text winMessageText;
     [SerializeField] private GameObject loseMessageUI; 
+
 
     [Header("UI Panel for Next Level Instruction")]
     [SerializeField] private GameObject nextLevelInstructionUI;
@@ -34,8 +40,7 @@ public class GameManager : MonoBehaviour
     [Header("Door & Camera Logic")]
     [SerializeField] private Camera mainCamera;   
     [SerializeField] private Transform cameraBehindRobot;
-    private bool isFrozen = false;
-    private bool hasWon = false;
+
 
 
     private void Awake()
@@ -60,7 +65,8 @@ public class GameManager : MonoBehaviour
         // Reset level data
         collectedTrash = 0;
         totalTrash = 10;
-        score = 0;  // Reset score at the start of each level
+        score = 0; 
+        timeSpent = 0f;
         
         
         SetLevelTime(scene);
@@ -127,6 +133,7 @@ public class GameManager : MonoBehaviour
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
+            timeSpent += Time.deltaTime;
             
             // Only update UI if we have a valid reference
             if (timerText != null)
@@ -163,9 +170,31 @@ public class GameManager : MonoBehaviour
 
         if (!isGameOver && collectedTrash >= totalTrash)
         {
-            WinGame();
+            StartCoroutine(DelayedWinCoroutine());
         }
     }
+
+    private System.Collections.IEnumerator DelayedWinCoroutine()
+    {
+        isInWinDelay = true;
+
+        float delay = 5f;
+        float startTime = Time.realtimeSinceStartup;
+
+        while (Time.realtimeSinceStartup - startTime < delay)
+        {
+            yield return null;  // Wait frame by frame
+        }
+
+        if (!isGameOver && !hasWon)
+        {
+            WinGame();
+        }
+
+        isInWinDelay = false;  // Just in case (though probably not needed anymore)
+    }
+
+
 
     public void RemovePoints(int points)
     {
@@ -179,7 +208,7 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         hasWon = true;
 
-        string rank = EvaluatePerformance(); // just "S Rank", "A Rank", etc.
+        string rank = EvaluatePerformance(); 
 
         if (winMessageText != null)
         {
@@ -199,19 +228,23 @@ public class GameManager : MonoBehaviour
     {
         string rank;
 
-        if (timeRemaining >= 70)
+        if (score >= 100 && timeSpent <= 30)
+        {
+            rank = "SSS Rank";
+        }
+        else if (timeSpent <= 30)
         {
             rank = "S Rank";
         }
-        else if (timeRemaining >= 60)
+        else if (timeSpent  <= 40)
         {
             rank = "A Rank";
         }
-        else if (timeRemaining >= 30)
+        else if (timeSpent >= 50)
         {
             rank = "B Rank";
         }
-        else if (timeRemaining >= 10)
+        else if (timeSpent <= 60)
         {
             rank = "C Rank";
         }
@@ -239,11 +272,14 @@ public class GameManager : MonoBehaviour
 
     void LoseGame()
     {
+        if (isInWinDelay) return;  // Prevent losing during win delay
+
         isGameOver = true;
         if (loseMessageUI != null) loseMessageUI.SetActive(true);
         StartCoroutine(HideLoseAfterDelay(10f));
         FreezeGame();
     }
+
 
     void RestartGame()
     {
@@ -428,6 +464,4 @@ public class GameManager : MonoBehaviour
         if (loseMessageUI != null) loseMessageUI.SetActive(false);
         UnfreezeGame(); 
     }
-
-
 }
