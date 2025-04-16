@@ -128,7 +128,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 - **Sound:**
   - ~~Plan to add background music and sound effects for collision, trash pickup, and low battery.~~  
     - ✅ Added background music to enhance immersion during gameplay.  
-    - ✅ Sound effects for collision trash pickup is finished
+    - ✅ Sound effects for collision trash pickup and jump is finished
 
 - **UI:**
   - ~~Refine scoreboard and timer layout.~~  
@@ -144,13 +144,12 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
     - 🔄 Wheel-turning animation is unnecessary since we can't really see the wheel very closely and clearly. 
 
 - **Additions:**
-  - ⚠️ Battery indicator not implemented yet – may be added in the next milestone.
+  - ⚠️ Battery indicator not implemented yet – may be added in the next milestone (unsure if necessary).
   - 🆕 Updated and swapped out prefab models to improve environmental consistency and clarity.
-  - 🚪 Refined gameplay logic: players now reach a door to transition to the next level.
+  - 🚪 Refined gameplay logic: players now reach a door to transition to the next level by hitting O (as commanded by the UI)
   - 🕹️ UI now includes options to exit and restart.
   - 📷 Camera animation is implemented to go over the map on the current level as the game starts.
   - ⤴️ Press ‘E’ to rotate the camera to avoid objects blocking users’ views.
-  - 🎬 Changed the scene transition to use the door on pressing 'O', used winning message(text in UI) instead of scenes.
   - ‼️ Now to go to the next scene, follow the instruction displayed after winning, go to the door and press 'O'
   - ‼️ Special note: for the ranking, there is a 5 second time window to collect beyond 10 trash (go above 100 points), this is not a bug. By doing so the player can trigger additional points and have special rankings for tasks completed in the 5 second period. Even if time ran out in this five seconds, the player still wins the game but there are not special ranks.
 
@@ -173,6 +172,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - 🔊 Plan to add custom sound effects for low battery, trash pickup, and cat interaction.
   - 🧠 Future addition: Add a “How to Play” help panel accessible from the main menu.
   - 🌟 Optional polish: Final level rating system (e.g., 1–3 stars based on score/time).
+  - 🔧 Deploy the game (using WebGL), upload to itch.io, and join a game jam.  
 
 
 
@@ -283,10 +283,8 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 - **Screen Captures:**
   - **UI Menu:**  
     ![UI Menu](Game_demo/UI_Menu.png)
-  - **Updated Scoreboard & Timer:**  
-    ![Scoreboard Timer](Game_demo/Scoreboard_Timer.png)
-  - **Trash Pickup Animation:**  
-    ![Trash Animation](Game_demo/TrashFade.png)
+  - **Updated Scoreboard & Remaining Trash Count:**  
+    ![Scoreboard Timer](Game_demo/Scoreboard.png)
 
 - **Asset Sources:**
   - Trash Prefab: [Mess Maker FREE](https://assetstore.unity.com/packages/tools/modeling/mess-maker-free-213803)
@@ -317,13 +315,13 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
   - **Space:** Jump (to reach trash on elevated surfaces).
   - **Mouse:** Navigate menus and click UI buttons.
   - The robot automatically collects trash upon collision.
-  - The player transitions to the next level by reaching the door once the target is met.
+  - The player transitions to the next level by reaching the door once the target is met and pressiong 'O'
 
 - **Core Scenes & Their Purposes:**
   - **MainMenu Scene:** Access the level selection screen and start or replay levels.
   - **Level 1–3 Scenes:** Main gameplay areas for trash collection, obstacle avoidance, and scene-based challenges.
-  - **Win Scene:** Displays “You Win” after collecting the required number of trash items and reaching the door.
-  - **Lose Scene:** Displays “You Lost” if the trash collection target isn’t met within the time limit.
+  - ~~**Win Scene:** Displays “You Win” after collecting the required number of trash items and reaching the door.~~
+  - ~~**Lose Scene:** Displays “You Lost” if the trash collection target isn’t met within the time limit.~~
 
 - **Additional Mechanics to Test:**
   - **New Trash Types:** Includes mud, cans, and money—some may act as obstacles or "bad trash."
