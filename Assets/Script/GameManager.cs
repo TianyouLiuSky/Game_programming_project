@@ -10,13 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeRemaining;
     private bool isGameOver = false;
 
-    [Header("UI For in Game Information")]
+    
     private TMP_Text timerText;  
     private TMP_Text scoreText; 
     private TMP_Text trashRemainingText;
 
 
-
+    [Header("UI For in Game Information")]
     [SerializeField] private int totalTrash = 10; // expected number of trash to be collected, the acutal "total nunmber" may be larger
     [SerializeField] private int collectedTrash = 0;
     [SerializeField] private int score = 0;
