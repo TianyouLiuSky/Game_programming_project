@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     
 
-    private TMP_Text timerText;  
-    private TMP_Text scoreText; 
-    private TMP_Text trashRemainingText;
+    [SerializeField] private TMP_Text timerText;  
+    [SerializeField] private TMP_Text scoreText; 
+    [SerializeField] private TMP_Text trashRemainingText;
 
     [Header("Game State Variables")]
     [SerializeField] private bool isGameOver = false;
@@ -41,8 +41,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;   
     [SerializeField] private Transform cameraBehindRobot;
 
+    [Header("Win UI Elements")]
+    [SerializeField] private GameObject restartButton;  
 
-
+    
     private void Awake()
     {
         if (Instance == null)
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -84,6 +87,8 @@ public class GameManager : MonoBehaviour
 
         UnfreezeGame(); // Make sure not frozen on new scene load
     }
+
+    
 
     public void FreezeGame()
     {
@@ -218,6 +223,11 @@ public class GameManager : MonoBehaviour
         if (winMessageUI != null)
         {
             winMessageUI.SetActive(true);
+        }
+
+        if (currentLevel == "Level3" && restartButton != null)
+        {
+            restartButton.SetActive(true);
         }
 
         StartCoroutine(HideWinAfterDelay(3f));
@@ -393,6 +403,7 @@ public class GameManager : MonoBehaviour
         }
 
         UpdateScoreText();
+
     }
 
     private void UpdateTrashRemainingText()
@@ -411,6 +422,26 @@ public class GameManager : MonoBehaviour
     {
         RestartGame();
     }
+
+    // Button call back: player clicked previous level
+    public void GoToPreviousLevel()
+    {
+        if (currentLevel == "Level2")
+        {
+            SceneManager.LoadScene("Level1");
+        }
+        else if (currentLevel == "Level3")
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        else
+        {
+            Debug.Log("Already at the first level. Cannot go back further.");
+        }
+    }
+
+
+
 
     // Button callback: player clicked exit
     public void OnExitButton()

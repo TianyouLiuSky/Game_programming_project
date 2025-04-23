@@ -31,6 +31,15 @@ public class DoorTrigger : MonoBehaviour
             hasPressedO = true;
             GameManager.Instance.OnPlayerInteractsDoor();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameManager.Instance.OnRestartButton();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            GameManager.Instance.GoToPreviousLevel();
+        }        
     }
 }
 
