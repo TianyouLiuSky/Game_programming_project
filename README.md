@@ -171,10 +171,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - ~~💬 Added floating "+10" (green) and "-10" (red) text when picking up good or bad trash — enhances player feedback (game juice). Extra particle effect was considered for this but ultimately not added due to unsatisfactory visuals.~~  
   - ~~✅ WebGL deployment complete; game uploaded to itch.io. Game jam submission completed on April 24.~~  
   - ~~🅰️ Added end-of-level performance rank system (A/B/C) based on trash collected — adds extra juice and replay motivation.~~
-
-
-
-
+  - ~~Added a short message at the beginning of Level 1 during the camera zoom-in sequence. This text explains the basic gameplay goal and bonus system to help new players understand objectives right away.~~
 
 
 
@@ -321,6 +318,8 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
   - **UI and Instructions:**
     - Added instructional messages at the bottom of the screen after level completion (e.g., “Press ESC to exit” or “Press O for next level”). These guide the player through transitions and reduce confusion.
       ![Instructions](Game_demo/instructions.png)
+    - Added a short message at the beginning of Level 1 during the camera zoom-in sequence. This text explains the basic gameplay goal and bonus system to help new players understand objectives right away.
+      ![Intro Message](Game_demo/intro_message.png)
 
   - **Animation Improvements:**
     - Polished cat positioning and animation. Cats now wander more naturally and smoothly across the level.
@@ -331,15 +330,10 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
     - The game was successfully exported using WebGL and uploaded to itch.io. It was also submitted to a game jam for additional playtesting and feedback.
 
 - **Asset Sources:**
- - N/A
+  - N/A
 - **Additions:**
   - 🐞 Fixed WASD input bug for smoother and more responsive player control.
-  - 💬 Implemented point feedback UI (“+10” / “-10”) to visually reinforce trash collection.
-  - 🅰️ Added performance rank system (A/B/C) at the end of each level.
-  - 📜 Added post-level instructional text for smoother user flow.
-  - 🐈 Polished cat animations and improved their interactions with the player.
-  - 🔄 Robot now rotates to match movement direction.
-  - 🌐 Deployed to WebGL and submitted to a game jam (April 24).
+  - 📜 Added pre and post-level instructional text for smoother user flow and camera usage.
 
 ---
 
