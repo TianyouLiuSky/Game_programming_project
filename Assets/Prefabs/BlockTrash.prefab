@@ -122,3 +122,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penaltyPoints: 10
   collectSound: {fileID: 8300000, guid: 0bd4bc9aa4fc44d81830684b32de4276, type: 3}
+  floatingTextPrefab: {fileID: 2986958265153174547, guid: 566995c510007486f9cbdcc22e06086c,
+    type: 3}

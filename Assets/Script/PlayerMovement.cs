@@ -13,6 +13,9 @@ public class RobotMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private AudioClip jumpSound;
 
+    [Header("Camera Reference")]
+    [SerializeField] private Transform cameraTransform;
+
     private Rigidbody rb;
     private bool isGrounded;
     private float currentMoveSpeed;
@@ -36,8 +39,18 @@ public class RobotMovement : MonoBehaviour
         rb.mass = 1f;
         rb.drag = 1f;
 
-        //initialize movespeed
+        // Initialize movespeed
         currentMoveSpeed = moveSpeed;
+
+        // Find camera if not assigned
+        if (cameraTransform == null)
+        {
+            Camera mainCamera = Camera.main;
+            if (mainCamera != null)
+            {
+                cameraTransform = mainCamera.transform;
+            }
+        }
     }
 
     private void Update()
@@ -46,17 +59,38 @@ public class RobotMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal"); // A & D
         float vertical = Input.GetAxis("Vertical");     // W & S
 
-        // Calculate movement vector
-        Vector3 movement = new Vector3(horizontal, 0f, vertical) * currentMoveSpeed;
+        // Get camera forward and right vectors
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        // Project vectors onto the horizontal plane (y = 0)
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+
+        // Calculate movement direction relative to camera orientation
+        Vector3 movement = (right * horizontal + forward * vertical) * currentMoveSpeed;
         
         // Apply movement to rigidbody
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+
+        // Make the player object face the movement direction
+        if (movement.magnitude > 0.1f)
+        {
+            Quaternion movementRotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.z).normalized);
+            movementRotation *= Quaternion.Euler(-90, 0, 0);
+            transform.rotation = movementRotation;
+        }
 
         // Handle jumping
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            audioSource.PlayOneShot(jumpSound);
+            if (audioSource != null && jumpSound != null)
+            {
+                audioSource.PlayOneShot(jumpSound);
+            }
         }
     }
 
