@@ -144,35 +144,35 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
     - 🔄 Wheel-turning animation is unnecessary since we can't really see the wheel very closely and clearly. 
 
 - **Additions:**
-  - ⚠️ Battery indicator not implemented yet – may be added in the next milestone (unsure if necessary).
-  - 🆕 Updated and swapped out prefab models to improve environmental consistency and clarity.
-  - 🚪 Refined gameplay logic: players now reach a door to transition to the next level by hitting O (as commanded by the UI)
-  - 🕹️ UI now includes options to exit and restart.
-  - 📷 Camera animation is implemented to go over the map on the current level as the game starts.
-  - ⤴️ Press ‘E’ to rotate the camera to avoid objects blocking users’ views.
-  - ‼️ Now to go to the next scene, follow the instruction displayed after winning, go to the door and press 'O'
+  - ~~⚠️ Battery indicator not implemented yet – may be added in the next milestone (unsure if necessary).~~
+  - ~~🆕 Updated and swapped out prefab models to improve environmental consistency and clarity.~~
+  - ~~🚪 Refined gameplay logic: players now reach a door to transition to the next level by hitting O (as commanded by the UI)~~
+  - ~~🕹️ UI now includes options to exit and restart.~~
+  - ~~📷 Camera animation is implemented to go over the map on the current level as the game starts.~~
+  - ~~⤴️ Press ‘E’ to rotate the camera to avoid objects blocking users’ views.~~
+  - ~~‼️ Implemented 'O' for next level: in order to go to the next scene, follow the instruction displayed after winning, go to the door and press 'O'~~
   - ‼️ Special note: for the ranking, there is a 5 second time window to collect beyond 10 trash (go above 100 points), this is not a bug. By doing so the player can trigger additional points and have special rankings for tasks completed in the 5 second period. Even if time ran out in this five seconds, the player still wins the game but there are not special ranks.
-
 
 ---
 ### Project Part 4: Finishing Touches (Ch 18, 19 + Final Polish)
 
 - **Performance Optimization:**
-  - Planned improvements include profiling the game and reducing bottlenecks to ensure smooth performance, especially in Level 3 which contains many assets and particle systems.  
+  - ❌ Planned improvements include profiling the game and reducing bottlenecks to ensure smooth performance, especially in Level 3 which contains many assets and particle systems.  
+    - Not implemented yet, but will be completed by the final project submission. This is more of a final step, and performance has been acceptable during playtesting due to the game's lightweight nature.
 
 - **Menu and Scene Transitions:**
-  - Planned updates to main menu visuals and smoother scene transitions. 
-    - A fade-in effect is to be added between gameplay and end screens. Menu UI can include restart, level select, and return-to-main-menu buttons. Final polish on animations will be added in the last week.
-
-- **Gameplay Enhancements:**
-  - Plan to refine Level 3 gameplay balance and increase interactivity.
-    - We hope to trash placement, add more mud blockers, and slightly reduce the timer to increase difficulty. We also plan to potentially add a tooltip system to help players in Level 1.
+  - ~~Planned updates to main menu visuals and smoother scene transitions.~~  
+    - ✅ For better user experience, we added on-screen instructions at the bottom (e.g., “Press ESC to exit the game” or “O for next level”) after players complete a level. These help users navigate more easily with the keyboard.
+  - ~~Final polish on animations will be added in the last week.~~  
+    - ✅ We polished the cat animations and adjusted their positions. The robot can now turn and face the correct direction as it moves, improving overall visual feedback.
 
 - **Additions:**
-  - 🔊 Plan to add custom sound effects for low battery, trash pickup, and cat interaction.
-  - 🧠 Future addition: Add a “How to Play” help panel accessible from the main menu.
-  - 🌟 Optional polish: Final level rating system (e.g., 1–3 stars based on score/time).
-  - 🔧 Deploy the game (using WebGL), upload to itch.io, and join a game jam.  
+  - ~~🐞 Fixed WASD movement input bug for smoother control.~~  
+  - ~~💬 Added floating "+10" (green) and "-10" (red) text when picking up good or bad trash — enhances player feedback (game juice). Extra particle effect was considered for this but ultimately not added due to unsatisfactory visuals.~~  
+  - ~~✅ WebGL deployment complete; game uploaded to itch.io. Game jam submission completed on April 24.~~  
+  - ~~🅰️ Added end-of-level performance rank system (A/B/C) based on trash collected — adds extra juice and replay motivation.~~
+
+
 
 
 
@@ -305,6 +305,41 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
   - Added new trash and obstacle prefabs including money, cans, and mud.
   - Refined logic to require players to reach a doorway to complete and transition levels.
 
+
+---
+### Project Part 4: Finishing Touches
+
+- **Implemented Elements:**
+
+  - **Juice & Feedback Enhancements:**
+    - Added floating "+10" (green) and "-10" (red) text that appears briefly when players pick up good or bad trash. This helps reinforce feedback and adds satisfying visual feedback to every interaction.
+      ![Point Feedback](Game_demo/point_feedback.png)
+
+    - A rank system now appears at the end of each level, grading the player's performance (A/B/C) based on how much trash was collected. This provides closure and motivation to improve.
+      ![Ranking System](Game_demo/ranking_system.png)
+
+  - **UI and Instructions:**
+    - Added instructional messages at the bottom of the screen after level completion (e.g., “Press ESC to exit” or “Press O for next level”). These guide the player through transitions and reduce confusion.
+      ![Instructions](Game_demo/instructions.png)
+
+  - **Animation Improvements:**
+    - Polished cat positioning and animation. Cats now wander more naturally and smoothly across the level.
+    - The robot now visually rotates to face the direction it’s moving, improving spatial feedback and immersion.
+      ![Robot Rotation](Game_demo/robot_direction.png)
+
+  - **Web Deployment:**
+    - The game was successfully exported using WebGL and uploaded to itch.io. It was also submitted to a game jam for additional playtesting and feedback.
+
+- **Asset Sources:**
+ - N/A
+- **Additions:**
+  - 🐞 Fixed WASD input bug for smoother and more responsive player control.
+  - 💬 Implemented point feedback UI (“+10” / “-10”) to visually reinforce trash collection.
+  - 🅰️ Added performance rank system (A/B/C) at the end of each level.
+  - 📜 Added post-level instructional text for smoother user flow.
+  - 🐈 Polished cat animations and improved their interactions with the player.
+  - 🔄 Robot now rotates to match movement direction.
+  - 🌐 Deployed to WebGL and submitted to a game jam (April 24).
 
 ---
 
