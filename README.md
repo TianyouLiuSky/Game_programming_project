@@ -182,7 +182,8 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - We plan to add an introductory level before level one to teach new players how to play this game. We plan to use interactive UI elements in the introductory level.
 - **Visual Effects:**
   - To create better visual feedback when players reach the end of a level, we plan to create a winning effect and a losing effect.
-
+- **Additions:**
+  - N/A
 
 ---
 
