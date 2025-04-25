@@ -327,7 +327,7 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 
   - **UI and Instructions:**
     - Added instructional messages at the bottom of the screen after level completion (e.g., “Press ESC to exit” or “Press O for next level”). These guide the player through transitions and reduce confusion.
-      ![Instructions](Game_demo/instructions.png)
+      ![Instructions](Game_demo/instruction.png)
     - Added a short message at the beginning of Level 1 during the camera zoom-in sequence. This text explains the basic gameplay goal and bonus system to help new players understand objectives right away.
       ![Intro Message](Game_demo/intro_message.png)
 
