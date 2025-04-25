@@ -152,6 +152,16 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - ~~⤴️ Press ‘E’ to rotate the camera to avoid objects blocking users’ views.~~
   - ~~‼️ Implemented 'O' for next level: in order to go to the next scene, follow the instruction displayed after winning, go to the door and press 'O'~~
   - ‼️ Special note: for the ranking, there is a 5 second time window to collect beyond 10 trash (go above 100 points), this is not a bug. By doing so the player can trigger additional points and have special rankings for tasks completed in the 5 second period. Even if time ran out in this five seconds, the player still wins the game but there are not special ranks.
+ 
+—
+### Project Final Submission
+- **Sound:**
+  - We plan to add more sound effects (cat sounds, fire sounds, ambient sounds, etc.) to create a more immersive experience.
+- **Tutorial:**
+  - We plan to add an introductory level before level one to teach new players how to play this game. We plan to use interactive UI elements in the introductory level.
+- **Visual Effects:**
+  - To create better visual feedback when players reach the end of a level, we plan to create a winning effect and a losing effect.
+
 
 ---
 ### Project Part 4: Finishing Touches (Ch 18, 19 + Final Polish)
