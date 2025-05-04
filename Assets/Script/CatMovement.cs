@@ -43,6 +43,8 @@ public class CatMovement : MonoBehaviour
     private float chaseCooldownTimer = 0f;
     private float chaseCooldownDuration = 5f;
     private bool isOnChaseCooldown = false;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip sittingSound;
 
     void Start() {
         animator = GetComponent<Animator>();
@@ -187,6 +189,10 @@ IEnumerator JumpOntoPlayer() {
         currentAnimState = ANIM_SIT;
         transform.position = targetPosition;
         isJumping = false;
+        if (audioSource != null && sittingSound != null)
+        {
+            audioSource.PlayOneShot(sittingSound);
+        }
     }
     else {
         rb.isKinematic = false;
