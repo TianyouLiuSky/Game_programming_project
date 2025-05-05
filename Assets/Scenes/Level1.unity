@@ -177,15 +177,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Collect 10 trash (cans) to win
-
-    You will have 5 seconds after collecting
-    10 trash to collect more to gain a higher rank
-
-    Mud slows you down, so does
-    the cat
-
-    Avoid collecting the money on the ground'
+  m_text: "Objective:\nCollect 10 trash (cans) to win the level.\nBonus Challenge:\nAfter
+    collecting 10, you\u2019ll have 5 extra seconds to grab up to 3 additional cans
+    to boost your final rank.\nWatch Out:\nMud and cats will slow you down.\nAvoid
+    picking up the money \u2014 it\u2019s a trap!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -219,7 +214,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -250,7 +245,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -188.9961, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1010,79 +1005,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 45ce9385454914eabbb4246284ad2f25, type: 3}
---- !u!1001 &382135179
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 652325859342616090, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_Name
-      value: RoundTrash (13)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2878490633513718677, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 1d4f4ebbd29854ac5831f068f8fe55c9, type: 2}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.263076
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.6547983
       objectReference: {fileID: 0}
     - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
         type: 3}
@@ -3841,7 +3763,7 @@ PrefabInstance:
     - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6202316
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
         type: 3}
@@ -3851,7 +3773,7 @@ PrefabInstance:
     - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.27
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7070872695127354716, guid: 45ce9385454914eabbb4246284ad2f25,
         type: 3}
@@ -4516,6 +4438,7 @@ MonoBehaviour:
   moveSpeed: 5
   slowedMoveSpeed: 2
   slowdownDuration: 3
+  controlEnabled: 1
   jumpForce: 5
   jumpSound: {fileID: 8300000, guid: 2c3c9aafbfcc04fa2bc19ac2d91e17ad, type: 3}
   cameraTransform: {fileID: 1074577006}
@@ -6060,7 +5983,6 @@ SceneRoots:
   - {fileID: 127804996}
   - {fileID: 228152706}
   - {fileID: 1832052340}
-  - {fileID: 382135179}
   - {fileID: 2070468261135280351}
   - {fileID: 876964929}
   - {fileID: 807720655}

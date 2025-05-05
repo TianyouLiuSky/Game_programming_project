@@ -468,7 +468,16 @@
             if (trashRemainingText != null)
             {
                 int remaining = totalTrash - collectedTrash;
-                trashRemainingText.text = $"Trash Until Win: {remaining}";
+
+                if (remaining > 0)
+                {
+                    trashRemainingText.text = $"Trash Until Win: {remaining}"; // normal trash collection
+                }
+                else
+                {
+                    int extra = Mathf.Abs(remaining);  // same as collectedTrash - totalTrash, the extra trash
+                    trashRemainingText.text = $"Extra Trash: {extra}";
+                }
             }
         }
 
