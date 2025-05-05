@@ -8,6 +8,7 @@ public class RobotMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float slowedMoveSpeed = 2f;
     [SerializeField] private float slowdownDuration = 3f;
+    [SerializeField] private bool controlEnabled = true;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 5f;
@@ -55,6 +56,9 @@ public class RobotMovement : MonoBehaviour
 
     private void Update()
     {
+        // use this funciton to control if movement is allowed or not
+        if (!controlEnabled) return; 
+
         // Get input
         float horizontal = Input.GetAxis("Horizontal"); // A & D
         float vertical = Input.GetAxis("Vertical");     // W & S
@@ -142,4 +146,11 @@ public class RobotMovement : MonoBehaviour
             StartCoroutine(CatSlowDownPlayer());
         }
     }
+
+    public void SetControlEnabled(bool enabled)
+    {
+        controlEnabled = enabled;
+    }
+
+    
 }

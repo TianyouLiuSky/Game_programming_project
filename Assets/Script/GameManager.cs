@@ -88,6 +88,8 @@
                     helpUI.SetActive(true);
                     StartCoroutine(HideHelpAfterDelay(7f));
                 }
+                // Freeze player and timer for 7 seconds at start of Level 1
+                StartCoroutine(DelayStartForLevel1());
             }
 
             UpdateTrashRemainingText();
@@ -101,6 +103,25 @@
             Time.timeScale = 1f; // Ensure game is running            
 
         }
+
+        private System.Collections.IEnumerator DelayStartForLevel1()
+        {
+            isFrozen = true;
+
+            RobotMovement player = FindFirstObjectByType<RobotMovement>();
+
+
+            if (player != null)
+                player.SetControlEnabled(false);
+
+            yield return new WaitForSecondsRealtime(7f);
+
+            isFrozen = false;
+
+            if (player != null)
+                player.SetControlEnabled(true);
+        }
+
 
         
 
