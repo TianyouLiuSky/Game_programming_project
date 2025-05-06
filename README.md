@@ -45,7 +45,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - **Dynamic Environment:** Experience realistic day-night cycles and weather changes.
   - **Performance Based Ranking:** The player will be awarded different points based on performance measured by time and trash collected
 - **Graphics & Controls:**
-  - First-person perspective with low-poly, stylized graphics.
+  - Third-person perspective with low-poly, stylized graphics.
   - Intuitive controls using keyboard (WASD for movement, Space for jump) or game controller.
   - On-screen displays include a dust collection meter, battery life indicator, ~~and a mini-map.~~
 
