@@ -189,11 +189,7 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
 - **Tutorial:**
   - ~~We plan to add an introductory level before level one to teach new players how to play this game. We plan to use interactive UI elements in the introductory level.~~  
     - ⚠️ Not fully implemented. Instead, we added helpful tips and on-screen text during Level 1 and Level 2 to guide the player through key mechanics.
-
-- **Visual Effects:**
-  - ~~To create better visual feedback when players reach the end of a level, we plan to create a winning effect and a losing effect.~~  
-    - ⚠️ Not fully implemented yet. While the Win/Lose UI screens are present, special effects for those screens are still basic.
-
+    
 - **Additions:**
   - ✅ Added a pause at the start of each level so that the camera can pan across the scene before gameplay begins. During this time, the timer does not count down and the player cannot move, giving players a chance to observe the layout.
   - ✅ Changed the color of some in-game text for better readability and aesthetic consistency (e.g., instructions, scores).
