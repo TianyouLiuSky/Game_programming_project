@@ -40,9 +40,10 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - **Hard Mode:**  
     - ~~Defend the home from intruders using built-in defensive mechanisms.~~
 - **Mechanics:**
-  - **Item Interaction:** Collect and use items (e.g., speed boosts, temporary shields).
+  - ~~**Item Interaction:** Collect and use items (e.g., speed boosts, temporary shields).~~
   - **Time Management:** Complete tasks within set time limits to advance.
   - **Dynamic Environment:** Experience realistic day-night cycles and weather changes.
+  - **Performance Based Ranking:** The player will be awarded different points based on performance measured by time and trash collected
 - **Graphics & Controls:**
   - First-person perspective with low-poly, stylized graphics.
   - Intuitive controls using keyboard (WASD for movement, Space for jump) or game controller.
