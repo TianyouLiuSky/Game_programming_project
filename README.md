@@ -396,7 +396,7 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 ---
 ### Demo
 
-[![Watch Demo Video](Game_demo/demo_thumbnail.png)](https://github.com/TianyouLiuSky/Game_programming_project/raw/main/Game_demo/videoDemo.mp4)
+[![Watch the Demo Video](https://raw.githubusercontent.com/TianyouLiuSky/Game_programming_project/main/Game_demo/demo_thumbnail.jpg)](https://raw.githubusercontent.com/TianyouLiuSky/Game_programming_project/main/Game_demo/videoDemo.mp4)
 
 - This video showcases a full playthrough of one level, demonstrating trash collection, obstacle avoidance (e.g., cats), scoring, UI transitions, and end-game ranking.
 
