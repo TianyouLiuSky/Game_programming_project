@@ -357,9 +357,6 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
     - Reference: https://pixabay.com/sound-effects/cat-meow-297927/
   - Added ambient rain sound in Level 3 to enhance environmental immersion.  
     - Reference: https://soundcloud.com/naturesoundsjp/sayama-rain-1
-  - Proposed future development ideas (not implemented in this build):
-    - [List your proposed future features here if you'd like — e.g., more levels, battery system, power-ups, etc.]
-
 ---
 
 ## Instructions for Testing the Project
@@ -395,6 +392,46 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
   - Cat collision and slowdown mechanics are currently set to a 15-second duration—can be tweaked in `CatBehavior.cs`.
   - UI layout may require adjustment if tested on different screen resolutions or aspect ratios.
   - The player is exptected to collect 10 trash, 100 points total. good trash (the colored cans) will award the player with 10 points each and 1 trash collcted, the bad trash (US dollars) should be avoided and if collected will give the player -10 points and -1 trash collected. The player wins by collecting 10 trash and getting 100 points (including deductions, so player might need to actually collect beyond 10 trash if they collected any bad trash). Once 100 points are met, the player will have 5 seconds to collect more trash, if they got beyond 100/130 points, they will get a special ranking. If the player's point go below 100 or time ran out during this period, the player still wins. Failing to collect 10 trash in the time limit will loose the game, and the player can select restart or quit. 
+
+
+---
+### Future Work
+
+In possible further development of this game, we propose implementing the following features:
+
+- **Dynamic Lighting System:**  
+  Introduce a day/night cycle that challenges players to complete levels under varying lighting conditions, enhancing gameplay complexity and immersion.
+
+- **More Variety of Pets:**  
+  Develop a more diverse range of interactive pets with different abilities that hinder the player. For example, a dog could eat trash before the player can collect it, reducing the maximum possible score in the level.
+
+- **Interactive Environment Elements:**  
+  Incorporate movable and destructible objects, potentially reducing scores when damaged or destroyed. For example, the player might accidentally knock over and break a vase on a table, resulting in a score penalty.
+
+- **More Levels:**  
+  Create more scenes with different environments for the player to play, including new in door and out door scenes. We also plan to add different trash in accordance with the scenes.  
+  
+---
+
+### Member Contributions
+
+#### Tianyou Liu
+
+- **Prefabs:** Created and arranged the prefabs for trash. Wrote associated scripts to handle trash collection and interaction with the robot.
+- **Game Manager:** Developed the GameManager script that handles level progression, restarts, and core game loop logic. Tracks collected trash and determines win conditions.
+- **Level Change:** Wrote scripts for transitioning between levels via UI buttons.
+- **UI:** Designed and implemented UI elements to display in-game information such as scores, remaining time, and trash count. Created the Win/Lose screens and help messages for player guidance.
+- **Testing:** Conducted extensive testing on different game versions, checking core functionality and edge cases.
+
+#### Nian Gao
+
+- **Music and Sound Effects:** Integrated background music, ambient rain, and sound effects for player actions (jump, score gain/loss) and cat meows.
+- **Player Movement:** Implemented camera rotation using E and Q keys. Refined player movement logic so that the robot model rotates based on movement direction.
+- **Visual Effects:** Added floating "+10" and "-10" visual indicators to provide score feedback.
+- **Occlusion Handling:** Implemented logic to make objects between the player and camera semi-transparent for better visibility.
+- **Animation:** Scripted camera flyover animation at level start. Developed cat animation transitions based on behavior states (idle, walking, sitting, etc.).
+- **Other:** Implemented obstacle mechanics that temporarily slow the player. Developed the cat's movement and interaction logic.
+
 
 
 
