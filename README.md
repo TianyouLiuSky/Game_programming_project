@@ -475,7 +475,12 @@ In possible further development of this game, we propose implementing the follow
 
 #### Alina Pan
 
-- **[add stuff here] 
+- **Environment Assets:** Implemented later-stage environmental furniture and decor. Integrated both Unity Asset Store resources and custom-sourced textures to enhance scene realism and visual consistency.
+- **Scene Loading:** Managed scene setup and loading, ensuring smooth transitions and correct placement of environmental objects across different game levels.
+- **Robot Movement (Initial Prototype):** Contributed to the early development of robot movement paths and logic, laying the foundation for later refinements.
+- **Map Design:** Designed and built the garden level, including layout, spatial flow, and object placement to support gameplay.
+- **Documentation:** Led the creation and editing of the README and related project documentation. Organized contributions and ensured clarity and completeness in project presentation.
+
 
 
 
