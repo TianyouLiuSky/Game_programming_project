@@ -346,6 +346,16 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
   - 📜 Added pre and post-level instructional text for smoother user flow and camera usage.
 
 ---
+### Final Project Submission
+
+- **Implemented Elements:**
+  - [List all final features or systems implemented before submission.]
+  - [Example: Added final win/lose effects, integrated tutorial level, improved cat AI behavior.]
+
+- **Additions:**
+  - [List any new assets, models, scripts, UI changes, or mechanics added during final polish.]
+  - [Example: New sound effects, final camera animation, end screen polish, score-based win logic tweaks.]
+---
 
 ## Instructions for Testing the Project
 
