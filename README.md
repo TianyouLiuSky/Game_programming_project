@@ -175,15 +175,29 @@ Source: [Steam - Rock Simulator](https://store.steampowered.com/app/1187510/Rock
   - ~~Added a short message at the beginning of Level 1 during the camera zoom-in sequence. This text explains the basic gameplay goal and bonus system to help new players understand objectives right away.~~
 
 —--
+
 ### Project Final Submission
+
 - **Sound:**
-  - We plan to add more sound effects (cat sounds, fire sounds, ambient sounds, etc.) to create a more immersive experience.
+  - ~~We plan to add more sound effects (cat sounds, fire sounds, ambient sounds, etc.) to create a more immersive experience.~~  
+    - ✅ Added cat SFX: the cat now plays a meow sound when it jumps onto the player.  
+    - ✅ Added ambient rain sound for Level 3.  
+    - 🔊 *Sound references:*  
+      - Cat meow: [Pixabay – Cat Meow](https://pixabay.com/sound-effects/cat-meow-297927/)  
+      - Rain ambient: [SoundCloud – Sayama Rain](https://soundcloud.com/naturesoundsjp/sayama-rain-1)
+
 - **Tutorial:**
-  - We plan to add an introductory level before level one to teach new players how to play this game. We plan to use interactive UI elements in the introductory level.
+  - ~~We plan to add an introductory level before level one to teach new players how to play this game. We plan to use interactive UI elements in the introductory level.~~  
+    - ⚠️ Not fully implemented. Instead, we added helpful tips and on-screen text during Level 1 and Level 2 to guide the player through key mechanics.
+
 - **Visual Effects:**
-  - To create better visual feedback when players reach the end of a level, we plan to create a winning effect and a losing effect.
+  - ~~To create better visual feedback when players reach the end of a level, we plan to create a winning effect and a losing effect.~~  
+    - ⚠️ Not fully implemented yet. While the Win/Lose UI screens are present, special effects for those screens are still basic.
+
 - **Additions:**
-  - N/A
+  - ✅ Added a pause at the start of each level so that the camera can pan across the scene before gameplay begins. During this time, the timer does not count down and the player cannot move, giving players a chance to observe the layout.
+  - ✅ Changed the color of some in-game text for better readability and aesthetic consistency (e.g., instructions, scores).
+
 
 ---
 
@@ -349,14 +363,26 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 ### Final Project Submission
 
 - **Implemented Elements:**
-  - Added a pause at the start of each level to allow the camera to scan the scene before gameplay begins; during this time, the timer is paused and player movement is disabled.
-  - Changed the color of certain in-game text for improved readability and visual clarity.
+
+  - **Gameplay & Flow:**
+    - Added a pause at the beginning of each level, during which the timer is frozen and player movement is disabled. This allows the camera to pan and gives players time to observe the layout before starting.
+      ![Camera Pause](Game_demo/camera_pause.png)
+
+  - **UI & Readability:**
+    - Adjusted colors of certain in-game texts (e.g., instructions, trash count, and scores) to improve clarity and contrast against different backgrounds.
+      ![Text Color Update](Game_demo/text_color.png)
+
+  - **Audio & Immersion:**
+    - Added cat sound effect that plays when the cat jumps onto the player, enhancing the pet interaction experience.  
+      🔉 *Reference:* [Pixabay – Cat Meow](https://pixabay.com/sound-effects/cat-meow-297927/)
+    - Added ambient rain sound in Level 3 to reinforce the outdoor setting and enhance mood.  
+      🔉 *Reference:* [SoundCloud – Sayama Rain](https://soundcloud.com/naturesoundsjp/sayama-rain-1)
 
 - **Additions:**
-  - Added cat SFX: the cat now plays a meow sound when it jumps onto the player.  
-    - Reference: https://pixabay.com/sound-effects/cat-meow-297927/
-  - Added ambient rain sound in Level 3 to enhance environmental immersion.  
-    - Reference: https://soundcloud.com/naturesoundsjp/sayama-rain-1
+
+  - 🐾 Added final layer of polish to cat animations and interactions to ensure smoother blending between states.
+  - 📝 Final README documentation completed, including team contributions, future work, and download instructions.
+
 ---
 
 ## Instructions for Testing the Project
