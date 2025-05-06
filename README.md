@@ -362,7 +362,6 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 
   - **Gameplay & Flow:**
     - Added a pause at the beginning of each level, during which the timer is frozen and player movement is disabled. This allows the camera to pan and gives players time to observe the layout before starting.
-      ![Camera Pause](Game_demo/camera_pause.png)
 
   - **UI & Readability:**
     - Adjusted colors of certain in-game texts (e.g., instructions, trash count, and scores) to improve clarity and contrast against different backgrounds.
