@@ -349,12 +349,17 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 ### Final Project Submission
 
 - **Implemented Elements:**
-  - [List all final features or systems implemented before submission.]
-  - [Example: Added final win/lose effects, integrated tutorial level, improved cat AI behavior.]
+  - Added a pause at the start of each level to allow the camera to scan the scene before gameplay begins; during this time, the timer is paused and player movement is disabled.
+  - Changed the color of certain in-game text for improved readability and visual clarity.
 
 - **Additions:**
-  - [List any new assets, models, scripts, UI changes, or mechanics added during final polish.]
-  - [Example: New sound effects, final camera animation, end screen polish, score-based win logic tweaks.]
+  - Added cat SFX: the cat now plays a meow sound when it jumps onto the player.  
+    - Reference: https://pixabay.com/sound-effects/cat-meow-297927/
+  - Added ambient rain sound in Level 3 to enhance environmental immersion.  
+    - Reference: https://soundcloud.com/naturesoundsjp/sayama-rain-1
+  - Proposed future development ideas (not implemented in this build):
+    - [List your proposed future features here if you'd like — e.g., more levels, battery system, power-ups, etc.]
+
 ---
 
 ## Instructions for Testing the Project
