@@ -421,15 +421,13 @@ https://assetstore.unity.com/packages/3d/props/3d-mini-garden-props-301026
 [![Watch the Demo Video](https://raw.githubusercontent.com/TianyouLiuSky/Game_programming_project/main/Game_demo/demo_thumbnail.jpg)](https://raw.githubusercontent.com/TianyouLiuSky/Game_programming_project/main/Game_demo/videoDemo.mp4)
 
 - This video showcases a full playthrough of one level, demonstrating trash collection, obstacle avoidance (e.g., cats), scoring, UI transitions, and end-game ranking.
-
+- Here is a talked through version on google drive: https://drive.google.com/file/d/1Wu5C_9DG6PNdJlKik-u0cEHwTAZ-bV_u/view
 
 ---
 
 ### Download
 
 - Here is the link to the game play: https://tianyouliusky.itch.io/cleaner-robot-simulator
-
-
 
 ---
 ### Future Work
